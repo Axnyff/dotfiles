@@ -16,9 +16,8 @@ set tabstop=4
 set shiftwidth=4
 hi Comment guifg=#ABCDEF
 set list
-set listchars=tab:▲\ ,eol:¬
-set listchars=tab:␉·
-:let mapleader = "\<Space>"
+set listchars=tab:␉·,eol:¬,nbsp:☠
+let mapleader = "\<Space>"
 set colorcolumn="#303030"
 
 
@@ -43,3 +42,5 @@ filetype plugin on
 set noswapfile
 set path=.,,
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
+set wildignore=**/node_modules/*
+set hidden
