@@ -16,7 +16,7 @@ set tabstop=4
 set shiftwidth=4
 hi Comment guifg=#ABCDEF
 set list
-set listchars=tab:␉·,eol:¬,nbsp:☠
+set listchars=tab:␉·,eol:¬,nbsp:☠,trail:·,
 let mapleader = "\<Space>"
 set colorcolumn="#303030"
 
@@ -44,3 +44,6 @@ set path=.,,
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 set wildignore=**/node_modules/*
 set hidden
+set expandtab
+set mouse=a
+set cursorline nocursorline
