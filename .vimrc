@@ -8,7 +8,6 @@ source $VIMRUNTIME/menu.vim
 set encoding=utf-8
 syn on
 colorscheme slate
-set noexpandtab
 set hlsearch
 set cursorline
 set autoindent
@@ -44,6 +43,5 @@ set path=.,,
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 set wildignore=**/node_modules/*
 set hidden
-set expandtab
 set mouse=a
 set cursorline nocursorline

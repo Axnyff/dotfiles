@@ -2,7 +2,6 @@ setlocal makeprg=eslint\ %\ -f\ compact\ \\\|\ head\ -n\ -2
 setlocal errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m
 setlocal iskeyword+=$
 setlocal suffixesadd=.js
-setlocal shiftwidth=2
 setlocal cinoptions+=:0
 
 
