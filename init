@@ -1,2 +1,7 @@
 git config --global user.email "axnyff@gmail.com"
 git config --global user.email "Axel Nyffenegger"
+cd ~
+
+ln -s .vim/.tmux.conf .tmux.conf
+ln -s .vim/.vimrc .vimrc
+ln -s .vim/.gitconfig .gitconfig
