@@ -2,3 +2,5 @@
 	email = Axel Nyffenegger
 [core]
 	editor = vim
+[push]
+	default = simple
