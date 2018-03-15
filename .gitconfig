@@ -4,3 +4,7 @@
 	editor = vim
 [push]
 	default = simple
+[help]
+	autocorrect = 3
+[alias]
+	git = !exec git
