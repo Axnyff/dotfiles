@@ -3,6 +3,7 @@
 	name = Axel Nyffenegger
 [core]
 	editor = vim
+	excludesfile = /home/axel/.gitignore_global
 [push]
 	default = simple
 [help]

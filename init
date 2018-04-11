@@ -1,10 +1,12 @@
-git config --global user.email "axnyff@gmail.com"
-git config --global user.email "Axel Nyffenegger"
-cd ~
+git config --global user.email "Axnyff@gmail.com"
+git config --global user.name "Axel Nyffenegger"
+git config --global core.excludesfile ~/.gitignore_global
 
-ln -s .vim/.tmux.conf .tmux.conf
-ln -s .vim/.vimrc .vimrc
-ln -s .vim/.gitconfig .gitconfig
+ln -s .vim/.gitignore_global ~/.gitignore_global
+ln -s .vim/.tmux.conf ~/.tmux.conf
+ln -s .vim/.vimrc ~/.vimrc
+ln -s .vim/.gitconfig ~/.gitconfig
+ln -s .vim/.ctags ~/.ctags
 
 # vim
 yes | sudo apt-get install libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev sudo apt install libncurses5-dev

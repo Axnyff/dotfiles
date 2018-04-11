@@ -45,3 +45,4 @@ set wildignore=**/node_modules/*
 set hidden
 set mouse=a
 set cursorline nocursorline
+set tags=./tags,tags;$HOME
