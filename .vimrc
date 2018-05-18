@@ -47,4 +47,3 @@ set mouse=a
 set cursorline nocursorline
 set tags=./tags,tags;$HOME
 set expandtab
-set incsearch
