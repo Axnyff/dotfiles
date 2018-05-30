@@ -9,7 +9,7 @@ ln -s .vim/.gitconfig ~/.gitconfig
 ln -s .vim/.ctags ~/.ctags
 
 # vim
-yes | sudo apt-get install libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev sudo apt install libncurses5-dev
+yes | sudo apt-get install libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev libncurses5-dev
 
 # tmux
 sudo apt-get install tmux
