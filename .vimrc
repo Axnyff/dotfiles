@@ -47,3 +47,8 @@ set mouse=a
 set cursorline nocursorline
 set tags=./tags,tags;$HOME
 set expandtab
+
+" The Silver Searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif

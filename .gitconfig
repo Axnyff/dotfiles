@@ -10,3 +10,4 @@
 	autocorrect = 3
 [alias]
 	git = !exec git
+	pushf = push --force-with-lease
