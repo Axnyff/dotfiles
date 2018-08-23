@@ -52,3 +52,7 @@ set expandtab
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+
+
+set undofile
+set undodir=~/.vim/undodir
