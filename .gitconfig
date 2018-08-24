@@ -3,7 +3,7 @@
 	name = Axel Nyffenegger
 [core]
 	editor = vim
-	excludesfile = /home/axel/.gitignore_global
+	excludesfile = /home/axnyff/.gitignore_global
 [push]
 	default = simple
 [help]
@@ -12,3 +12,4 @@
 	git = !exec git
 	pushf = push --force-with-lease
 	pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
+	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"

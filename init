@@ -1,9 +1,5 @@
 echo "Starting the madness"
 
-git config --global user.email "Axnyff@gmail.com"
-git config --global user.name "Axel Nyffenegger"
-git config --global core.excludesfile ~/.gitignore_global
-
 ln -s .vim/.gitignore_global ~/.gitignore_global
 ln -s .vim/.tmux.conf ~/.tmux.conf
 ln -s .vim/.vimrc ~/.vimrc

@@ -12,3 +12,7 @@ export LC_ALL='en_US.UTF8'
 vims() {
     vim -c "vim $1 ${2-"**/*.js"}"
 }
+
+vimf() {
+    vim `find -name $1`
+}
