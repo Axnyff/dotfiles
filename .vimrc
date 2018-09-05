@@ -11,8 +11,8 @@ colorscheme slate
 set hlsearch
 set cursorline
 set autoindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 hi Comment guifg=#ABCDEF
 set list
 set listchars=tab:␉·,eol:¬,nbsp:☠,trail:·,

@@ -1,1 +1,1 @@
-set filetype=vim
+set filetype=html
