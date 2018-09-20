@@ -13,3 +13,5 @@
 	pushf = push --force-with-lease
 	pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
+[pull]
+	rebase = true

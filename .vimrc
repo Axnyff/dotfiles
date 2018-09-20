@@ -32,7 +32,6 @@ for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', 
 endfor
 
 map Y y$
-nnoremap <Leader><Leader> :set cursorcolumn!<CR>
 
 call pathogen#infect()
 let g:netrw_liststyle=3
@@ -56,3 +55,6 @@ endif
 
 set undofile
 set undodir=~/.vim/undodir
+
+let g:local = "postgresql://play@localhost/travauxlib"
+
