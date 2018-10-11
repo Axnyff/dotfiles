@@ -1,1 +1,4 @@
 nmap gf :action GotoImplementation<CR>
+set visualbell
+set noerrorbells
+set incsearch
