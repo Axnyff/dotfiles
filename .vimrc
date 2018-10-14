@@ -89,3 +89,5 @@ set undofile
 set undodir=~/.vim/undodir
 
 let g:local = "postgresql://play@localhost/travauxlib"
+ let g:dispatch_compilers = {
+       \ 'eslint_pro': 'eslint_pro' }
