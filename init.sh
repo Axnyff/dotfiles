@@ -21,6 +21,8 @@ sudo apt-get install tmux
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
 # public key
-ssh-keygen
+if [ ! -f ~/.ssh/id_rsa ]; then
+  ssh-keygen
+fi
 
 mkdir undofile
