@@ -15,7 +15,7 @@ set tabstop=2
 set shiftwidth=2
 hi Comment guifg=#ABCDEF
 set list
-set listchars=tab:␉·,eol:¬,nbsp:☠,trail:·,
+set listchars=tab:␉·,eol:¬,nbsp:☠,trail:☠,
 let mapleader = "\<Space>"
 set colorcolumn="#303030"
 
@@ -33,7 +33,29 @@ endfor
 
 map Y y$
 
-call pathogen#infect()
+" PLUGIN SECTION
+packadd minpac
+call minpac#init()
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-fireplace')
+call minpac#add('tpope/vim-dadbod')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-sensible')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-git')
+call minpac#add('tpope/vim-rhubarb')
+call minpac#add('leafgarland/typescript-vim')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('derekwyatt/vim-scala')
+call minpac#add('bronson/vim-visual-star-search')
+
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
+
+
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 filetype plugin on
