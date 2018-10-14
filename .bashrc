@@ -20,7 +20,4 @@ vimf() {
 export PATH=$PATH:.vim/pack/minpac/start/fzf/bin
 export FZF_DEFAULT_COMMAND='git ls-files'
 
-alias eslint_pro='~/travauxlib/pro/node_modules/eslint/bin/eslint.js $1 -f ~/.vim/ftplugin/formatter.js'
-
-
 export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"

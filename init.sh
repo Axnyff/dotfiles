@@ -26,3 +26,4 @@ if [ ! -f ~/.ssh/id_rsa ]; then
 fi
 
 mkdir undofile
+alias vi=vim
