@@ -16,3 +16,6 @@ vims() {
 vimf() {
     vim `find -name $1`
 }
+
+export PATH=$PATH:.vim/pack/minpac/start/fzf/bin
+export FZF_DEFAULT_COMMAND='git ls-files'

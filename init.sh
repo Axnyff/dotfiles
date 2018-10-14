@@ -1,13 +1,15 @@
 echo "Starting the madness"
 
-ln -s .vim/.gitignore_global ~/.gitignore_global
-ln -s .vim/.tmux.conf ~/.tmux.conf
-ln -s .vim/.vimrc ~/.vimrc
-ln -s .vim/.ideavimrc ~/.ideavimrc
+ln -s ~/.vim/.gitignore_global ~/.gitignore_global
+ln -s ~/.vim/.tmux.conf ~/.tmux.conf
+ln -s ~/.vim/.vimrc ~/.vimrc
+ln -s ~/.vim/.ideavimrc ~/.ideavimrc
 rm ~/.gitconfig
-ln -s .vim/.gitconfig ~/.gitconfig
-ln -s .vim/.ctags ~/.ctags
-cat .vim/.bashrc >> ~/.bashrc
+ln -s ~/.vim/.gitconfig ~/.gitconfig
+ln -s ~/.vim/.ctags ~/.ctags
+
+# add . ./setup.bash to ~/bashrc
+ln -s ~/.vim/.bashrc ~/.setup.bash
 
 # vim
 yes | sudo apt-get install libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev libncurses5-dev xsel

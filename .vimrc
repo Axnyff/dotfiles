@@ -15,7 +15,7 @@ set tabstop=2
 set shiftwidth=2
 hi Comment guifg=#ABCDEF
 set list
-set listchars=tab:␉·,eol:¬,nbsp:☠,trail:☠,
+set listchars=tab:␉·,eol:¬,nbsp:☠,trail:.,
 let mapleader = "\<Space>"
 set colorcolumn="#303030"
 
@@ -25,10 +25,10 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '`', "#" ]
-    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
-    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
-    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
-    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+  execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
+  execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
+  execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
+  execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
 endfor
 
 map Y y$
@@ -45,19 +45,27 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
+call minpac#add('tpope/vim-projectionist')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('derekwyatt/vim-scala')
 call minpac#add('bronson/vim-visual-star-search')
+call minpac#add('junegunn/fzf')
 
+
+" Minpac options
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
-
+" Netrw options
 let g:netrw_liststyle=3
 let g:netrw_banner=0
+
+" Binding FZF
+nnoremap <C-p> :<C-u>FZF<CR>
+
 filetype plugin on
 set noswapfile
 set path=.,,
@@ -75,6 +83,7 @@ if executable('ag')
 endif
 
 
+" Properly set up undodir
 set undofile
 set undodir=~/.vim/undodir
 
