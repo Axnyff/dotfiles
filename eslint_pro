@@ -1,0 +1,2 @@
+#!/bin/bash
+node ~/travauxlib/pro/node_modules/eslint/bin/eslint.js $1 -f ~/.vim/ftplugin/formatter.js

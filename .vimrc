@@ -45,6 +45,7 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
+call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-projectionist')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('pangloss/vim-javascript')
@@ -88,4 +89,3 @@ set undofile
 set undodir=~/.vim/undodir
 
 let g:local = "postgresql://play@localhost/travauxlib"
-

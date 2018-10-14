@@ -3,6 +3,7 @@
     "alternate": "{dirname}/{basename}.js"
   },
   "*.js": {
-    "alternate": "{dirname}/tests/{basename}.test.js"
+    "alternate": "{dirname}/tests/{basename}.test.js",
+    "make": "eslint_pro %"
   }
 }
