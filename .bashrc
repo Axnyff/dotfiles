@@ -21,3 +21,8 @@ export PATH=$PATH:.vim/pack/minpac/start/fzf/bin
 export FZF_DEFAULT_COMMAND='git ls-files'
 
 export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"
+export TMPDIR="/tmp"
+
+fuck_u_husky() {
+  rm ~/travauxlib/.git/hooks/*
+}
