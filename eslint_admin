@@ -1,2 +1,2 @@
 #!/bin/bash
-node ~/travauxlib/admin/node_modules/eslint/bin/eslint.js $1 -f ~/.vim/ftplugin/eslint_formatter.js | tail -n 1
+node ~/travauxlib/admin/node_modules/eslint/bin/eslint.js $1 -f ~/.vim/ftplugin/eslint_formatter.js --fix | tail -n +2
