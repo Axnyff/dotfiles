@@ -12,5 +12,5 @@
 	git = !exec git
 	pushf = push --force-with-lease
 	pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
-	pushup = ! git push -u origin `git rev-parse --abbrev-ref HEAD` | awk '/https:/ { print $2 }' |xargs xdg-open
+	pushup = !git pushu 2>&1 | awk '/https/ {print $2}' | xargs xdg-open > /dev/null
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
