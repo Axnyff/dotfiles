@@ -2,6 +2,9 @@
   "**/tests/*.test.js": {
     "alternate": "{dirname}/{basename}.js"
   },
+  "*": {
+    "start": "yarn start"
+  },
   "*.js": {
     "alternate": "{dirname}/tests/{basename}.test.js",
     "make": "eslint_pro %"
