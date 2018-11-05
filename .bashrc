@@ -9,8 +9,8 @@ parse_git_branch() {
 export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \n$ "
 export LC_ALL='en_US.UTF8'
 
-vims() {
-    vim -c "vim $1 ${2-"**/*.js"}"
+vims() { 
+  vim `echo "\"$@\"" | xargs ag -l`;
 }
 
 vimf() {
