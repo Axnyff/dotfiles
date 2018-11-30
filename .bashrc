@@ -15,11 +15,11 @@ vims() {
 }
 
 vimf() {
-    vim `find -name $1`
+  vim `find -name $1`
 }
 
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' -e 's/((/(((/' -e 's/))/)))/'
 }
 
 fuck_u_husky() {
