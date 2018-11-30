@@ -1,13 +1,14 @@
 # replace evil capslocks by shift
 xmodmap -e "keycode 66 = Shift_L NoSymbol Shift_L"
-# Only load Liquid Prompt in interactive shells, not from a script or from scp
-# [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
-PATH=$PATH:~/.local/bin/:~/.yarn/bin/
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+
+
 export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \n$ "
 export LC_ALL='en_US.UTF8'
+export PATH=$PATH
+export FZF_DEFAULT_COMMAND='git ls-files'
+export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"
+export TMPDIR="/tmp"
+export HUSKY_SKIP_INSTALL=true
 
 vims() { 
   vim `echo "\"$@\"" | xargs ag -l`;
@@ -17,11 +18,9 @@ vimf() {
     vim `find -name $1`
 }
 
-export PATH=$PATH:.vim/pack/minpac/start/fzf/bin
-export FZF_DEFAULT_COMMAND='git ls-files'
-
-export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"
-export TMPDIR="/tmp"
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 
 fuck_u_husky() {
   rm ~/travauxlib/.git/hooks/*
