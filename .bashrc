@@ -9,13 +9,14 @@ export FZF_DEFAULT_COMMAND='git ls-files'
 export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"
 export TMPDIR="/tmp"
 export HUSKY_SKIP_INSTALL=true
+alias vi=vim
 
 vims() { 
   vim `echo "\"$@\"" | xargs ag -l`;
 }
 
 vimf() {
-  vim `find -name $1`
+  vim `find -type f -name $1`
 }
 
 parse_git_branch() {

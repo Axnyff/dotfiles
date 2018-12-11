@@ -19,6 +19,11 @@ set listchars=tab:␉·,eol:¬,nbsp:☠,trail:.,
 let mapleader = "\<Space>"
 set colorcolumn="#303030"
 
+"autoread modified files
+set autoread
+autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
+
+set autochdir
 
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
