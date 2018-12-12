@@ -89,6 +89,8 @@ if executable('ag')
 endif
 
 
+xnoremap <silent> p p:if v:register == '"'<Bar>let @@=@0<Bar>endif<cr>
+
 " Properly set up undodir
 set undofile
 set undodir=~/.vim/undodir
