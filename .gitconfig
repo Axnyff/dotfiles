@@ -16,4 +16,4 @@
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
 	ctags = !.git/hooks/ctags
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/.vim/git_template
