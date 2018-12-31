@@ -23,8 +23,6 @@ set colorcolumn="#303030"
 set autoread
 autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
 
-set autochdir
-
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
@@ -51,13 +49,9 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-projectionist')
-call minpac#add('leafgarland/typescript-vim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-airline/vim-airline')
-call minpac#add('derekwyatt/vim-scala')
-call minpac#add('bronson/vim-visual-star-search')
 call minpac#add('junegunn/fzf')
 
 
@@ -96,6 +90,3 @@ set undofile
 set undodir=~/.vim/undodir
 
 let g:local = "postgresql://play@localhost/travauxlib"
- let g:dispatch_compilers = {
-       \ 'eslint_pro': 'eslint_pro',
-       \ 'eslint_admin': 'eslint_admin' }
