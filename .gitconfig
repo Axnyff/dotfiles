@@ -15,5 +15,8 @@
 	pushup = !git pushu 2>&1 | awk '/https/ {print $2}' | xargs xdg-open > /dev/null
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
 	ctags = !.git/hooks/ctags
+	wip = !git add -A && git commit -m "Wip"
+	lol = "log --graph --decorate --pretty=format:\"%Cred%h %Cblue%an %ai %Cgreen %s\""
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [init]
 	templatedir = ~/.vim/git_template
