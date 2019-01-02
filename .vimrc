@@ -21,7 +21,10 @@ set colorcolumn="#303030"
 
 "autoread modified files
 set autoread
-autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
+set autowrite
+set autowriteall
+set updatetime=100
+autocmd FileChangedShell,FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
 
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
