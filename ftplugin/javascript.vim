@@ -13,9 +13,6 @@ endif
 
 function! IncludeExpr()
   let l:result = expand(substitute(v:fname, '^travauxlib', '~/travauxlib/apps', ""))
-  echom l:result
-  echom findfile(l:result)
-  echom !findfile(l:result)
   if len(findfile(l:result))
     return l:result
   else
