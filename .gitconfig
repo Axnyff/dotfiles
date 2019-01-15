@@ -18,5 +18,6 @@
 	wip = !git add -A && git commit -m "Wip"
 	lol = "log --graph --decorate --pretty=format:\"%Cred%h %Cblue%an %ai %Cgreen %s\""
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	fuck = !git pull --rebase && git push
 [init]
 	templatedir = ~/.vim/git_template
