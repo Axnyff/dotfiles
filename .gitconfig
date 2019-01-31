@@ -16,6 +16,10 @@
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
 	ctags = !.git/hooks/ctags
 	wip = !git add -A && git commit -m "Wip"
+	wipush = !git wip && git push
+	wipushu = !git wip && git pushu
+	wipushup = !git wip && git pushup
+	pr = !git wipushup
 	lol = "log --graph --decorate --pretty=format:\"%Cred%h %Cblue%an %ai %Cgreen %s\""
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	fuck = !git pull --rebase && git push
