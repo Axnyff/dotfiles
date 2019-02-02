@@ -66,6 +66,7 @@ command! PackClean call minpac#clean()
 " Netrw options
 let g:netrw_liststyle=3
 let g:netrw_banner=0
+let g:netrw_winsize='30'
 
 " Binding FZF
 nnoremap <C-p> :<C-u>FZF<CR>
