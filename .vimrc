@@ -57,6 +57,7 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
+call minpac#add('junegunn/fzf.vim')
 
 
 " Minpac options
