@@ -17,6 +17,7 @@
 	ctags = !.git/hooks/ctags
 	wip = !git add -A && git commit -m "Wip"
 	wipush = !git wip && git push
+	wipushf = !git wip && git pushf
 	wipushu = !git wip && git pushu
 	wipushup = !git wip && git pushup
 	pr = !git wipushup
