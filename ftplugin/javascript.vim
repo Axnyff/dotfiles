@@ -36,6 +36,7 @@ if !exists("g:loaded_js_gf")
       let l:index = l:index + 1
       if l:index == len(s:possibilities)
         echo "no luck"
+        echom l:file
         return
       endif
     endwhile

@@ -58,6 +58,7 @@ call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('bronson/vim-visual-star-search')
 
 
 " Minpac options
