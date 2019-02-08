@@ -29,7 +29,7 @@ if !exists("g:loaded_js_gf")
     if expand("<cWORD>") =~ "@"
       let l:file = expand(substitute( expand("<cWORD>")[1:-3], '@travauxlib', '~/travauxlib/apps', ""))
     else
-      let l:file = expand("%:h") . "/" . expand("<cfile>:t")
+      let l:file = simplify(expand("%:h") . "/" . expand("<cfile>"))
     endif
     let l:index = 0
     while !len(findfile(l:file . s:possibilities[l:index]))
