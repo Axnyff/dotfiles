@@ -22,25 +22,19 @@ endfunction
 
 setlocal includeexpr=IncludeExpr()
 
-let s:possibilities = [".ts", ".tsx", "/index.ts", "/index.tsx", "/index.js", ".js", ".css", ".scss", ".svg", ".d.ts"]
-
 if !exists("g:loaded_js_gf")
   function! s:Gf()
     if expand("<cWORD>") =~ "@"
       let l:file = expand(substitute( expand("<cWORD>")[1:-3], '@travauxlib', '~/travauxlib/apps', ""))
     else
       let l:file = simplify(expand("%:h") . "/" . expand("<cfile>"))
+
     endif
-    let l:index = 0
-    while !len(findfile(l:file . s:possibilities[l:index]))
-      let l:index = l:index + 1
-      if l:index == len(s:possibilities)
-        echo "no luck"
-        echom l:file
-        return
-      endif
-    endwhile
-    execute "find " . l:file . s:possibilities[l:index]
+    if !len(findfile(l:file))
+      execute "find " . l:file . "/index"
+    else
+      execute "find " . l:file
+    endif
   endfunction
 end
 let g:loaded_js_gf=1
