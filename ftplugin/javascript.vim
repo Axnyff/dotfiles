@@ -24,6 +24,15 @@ setlocal includeexpr=IncludeExpr()
 
 if !exists("g:loaded_js_gf")
   function! s:Gf()
+    let l:file = expand("<cfile>")
+    if len(findfile(l:file))
+      execute "find " . l:file
+      return
+    elseif len(findfile(l:file . "/index"))
+      execute "find " . l:file . "/index"
+      return
+    endif
+
     if expand("<cWORD>") =~ "@"
       let l:file = expand(substitute( expand("<cWORD>")[1:-3], '@travauxlib', '~/travauxlib/apps', ""))
     else
