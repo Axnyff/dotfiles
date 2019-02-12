@@ -9,6 +9,8 @@ export FZF_DEFAULT_COMMAND='git ls-files'
 export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"
 export TMPDIR="/tmp"
 export HUSKY_SKIP_INSTALL=true
+export EDITOR="vim"
+export REACT_EDITOR="vim"
 alias vi=vim
 
 vims() { 
@@ -26,3 +28,4 @@ parse_git_branch() {
 fuck_u_husky() {
   rm ~/travauxlib/.git/hooks/*
 }
+
