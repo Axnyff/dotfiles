@@ -81,7 +81,7 @@ set wildignore=**/node_modules/*
 set hidden
 set mouse=a
 set cursorline nocursorline
-set tags=./tags,tags;$HOME
+set tags=./tags,tags;$HOME,~/travauxlib/.git/tags
 set expandtab
 
 " The Silver Searcher
