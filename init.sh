@@ -8,6 +8,7 @@ rm ~/.gitconfig
 ln -s ~/.vim/.gitconfig ~/.gitconfig
 ln -s ~/.vim/.ctags ~/.ctags
 ln -s ~/.vim/.psqlrc ~/.psqlrc
+ln -s ~/.vim/.emacs ~/.emacs
 
 # add . ./setup.bash to ~/bashrc
 ln -s ~/.vim/.bashrc ~/.setup.bash
