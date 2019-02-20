@@ -21,7 +21,6 @@ export REACT_EDITOR="vim"
 
 # Aliases
 alias vi=vim
-alias emacs="emacs -mm &"
 
 # methods
 vims() { 

@@ -48,4 +48,7 @@ There are two things you can do about this warning:
                              "~/gtd/todos/work.org"))
 
 
+;; some stuff
 (setq create-lockfiles nil)
+(setq inhibit-startup-screen t)
+(add-to-list 'default-frame-alist '(fullscreen . maximized)) ;; fullscreen
