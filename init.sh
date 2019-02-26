@@ -29,3 +29,8 @@ fi
 
 mkdir undofile
 alias vi=vim
+
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt-get update
+sudo apt install emacs26
+git clone https://github.com/emacs-evil/evil ~/.emacs.d/evil
