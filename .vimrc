@@ -19,6 +19,8 @@ set listchars=tab:␉·,eol:¬,nbsp:☠,trail:.,
 let mapleader = "\<Space>"
 set colorcolumn="#303030"
 
+set shortmess=atIO
+
 "autoread modified files
 set autoread
 set autowrite
