@@ -28,7 +28,8 @@ if !exists("g:loaded_js_gf")
     if len(findfile(l:file))
       execute "find " . l:file
       return
-    elseif len(findfile(l:file . "/index"))
+    elseif len(findfile(l:file . "/index")) && l:file !~ "^."
+      echom l:file
       execute "find " . l:file . "/index"
       return
     endif

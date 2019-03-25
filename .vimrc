@@ -110,5 +110,4 @@ function s:MkNonExDir(file, buf)
 endfunction
 augroup BWCCreateDir
     autocmd!
-    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-augroup END
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>')
