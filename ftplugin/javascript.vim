@@ -25,11 +25,16 @@ setlocal includeexpr=IncludeExpr()
 if !exists("g:loaded_js_gf")
   function! s:Gf()
     let l:file = expand("<cfile>")
+
+    if l:file !~ "^\." && l:file !~ "^@"
+      let l:file = "yooooo" . l:file
+    endif
+
+
     if len(findfile(l:file))
       execute "find " . l:file
       return
-    elseif len(findfile(l:file . "/index")) && l:file !~ "^."
-      echom l:file
+    elseif len(findfile(l:file . "/index"))
       execute "find " . l:file . "/index"
       return
     endif
