@@ -15,7 +15,8 @@ export TMPDIR="/tmp"
 export HUSKY_SKIP_INSTALL=true
 export EDITOR="vim"
 export REACT_EDITOR="vim"
-export FZF_DEFAULT_COMMAND='git ls-files -o -c --exclude-standard > /tmp/c; git ls-files -d > /tmp/d; grep -vf /tmp/d /tmp/c'
+export FZF_DEFAULT_COMMAND='grep -vf <(git ls-files -d) <(git ls-files -o -c --exclude-standard)'
+
 
 # methods
 vims() { 
