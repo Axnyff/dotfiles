@@ -6,6 +6,8 @@
 	excludesfile = /home/axnyff/.gitignore_global
 [push]
 	default = simple
+[rebase]
+	autosquash = true
 [help]
 	autocorrect = 3
 [alias]
@@ -25,5 +27,6 @@
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	fuck = !git pull --rebase && git push
 	co = checkout
+	amend = commit --amend
 [init]
 	templatedir = ~/.vim/git_template
