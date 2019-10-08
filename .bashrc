@@ -53,11 +53,13 @@ dev() {
 
 # Aliases
 alias vi=vim
+
 alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name travauxlib-db -e POSTGRES_USER=play -e POSTGRES_DB=travauxlib -e POSTGRES_PASSWORD=play -d postgres && ruby ~/travauxlib/api/restore_db.rb'
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name travauxlib-db -e POSTGRES_USER=play -e POSTGRES_DB=travauxlib -e POSTGRES_PASSWORD=play -d postgres'
 alias go_docker_test='docker run -p 5431:5432 --name travauxlib-db-test --restart=always -e POSTGRES_USER=play -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=play -d postgres'
 alias all_about_that_base='psql -E -d travauxlib -h localhost -U play'
 alias website_start="php bin/console server:start"
+alias website_stop="php bin/console server:stop"
 alias website_refresh="php bin/console travauxlib:clear-cloudflare-cache"
 
 
