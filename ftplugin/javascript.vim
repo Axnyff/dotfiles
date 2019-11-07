@@ -35,7 +35,8 @@ if !exists("g:loaded_js_gf")
     endif
 
     if l:file[0] != "." && l:file != "@"
-      let l:file = "app/" . l:file
+
+      let l:file = substitute(expand("%:h:p"), '\(pro/\|admin/\|client/\)\?\(app/\).\+', '\1\2', 'g') . l:file
       if len(findfile(l:file))
         execute "find " . l:file
         return
