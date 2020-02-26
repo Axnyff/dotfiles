@@ -88,7 +88,7 @@ set expandtab
 
 " The Silver Searcher
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ .git\ -g
 endif
 
 

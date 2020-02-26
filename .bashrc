@@ -62,6 +62,12 @@ alias website_start="php bin/console server:start"
 alias website_stop="php bin/console server:stop"
 alias website_refresh="php bin/console travauxlib:clear-cloudflare-cache"
 
+ag() {
+  command ag \
+    -p "$(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git rev-parse --show-toplevel)/.gitignore")" \
+    "$@"
+}
+
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [[ -s /home/axnyff/.autojump/etc/profile.d/autojump.sh ]] && source /home/axnyff/.autojump/etc/profile.d/autojump.sh
