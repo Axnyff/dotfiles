@@ -16,7 +16,7 @@ set shiftwidth=2
 hi Comment guifg=#ABCDEF
 set list
 set listchars=tab:␉·,eol:¬,nbsp:☠,trail:.,
-let mapleader = "\<Space>"
+let mapleader = "\<Backslash>"
 set colorcolumn="#303030"
 
 set shortmess=atIO
@@ -61,7 +61,9 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('bronson/vim-visual-star-search')
+call minpac#add('colmbus72/slim')
 
+command! Slack :call slim#StartSlack()
 
 " Minpac options
 command! PackUpdate call minpac#update()
