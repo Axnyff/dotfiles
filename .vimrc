@@ -55,7 +55,7 @@ call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('leafgarland/typescript-vim')
-call minpac#add('pangloss/vim-javascript')
+" call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
@@ -100,7 +100,7 @@ xnoremap <silent> p p:if v:register == '"'<Bar>let @@=@0<Bar>endif<cr>
 set undofile
 set undodir=~/.vim/undodir
 
-let g:local = "postgresql://play@localhost/travauxlib"
+let g:local = "postgresql://hemea@localhost/hemea"
 
 function s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
