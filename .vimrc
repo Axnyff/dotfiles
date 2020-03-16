@@ -119,3 +119,5 @@ augroup end
 if has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
+
+nnoremap cv :e $MYVIMRC<CR>
