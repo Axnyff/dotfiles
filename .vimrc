@@ -120,4 +120,14 @@ if has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
 
+" edit vimrc
 nnoremap cv :e $MYVIMRC<CR>
+
+" improve gx
+function! s:Gx()
+  let l:url = expand("<cWORD>")
+  echom l:url
+  execute "!xdg-open " . l:url
+endfunction
+
+nmap gx :call <SID>Gx()<CR>
