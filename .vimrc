@@ -131,3 +131,10 @@ function! s:Gx()
 endfunction
 
 nmap gx :call <SID>Gx()<CR>
+
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+
+autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
