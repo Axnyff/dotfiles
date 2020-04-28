@@ -59,15 +59,13 @@ call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
-call minpac#add('bronson/vim-visual-star-search')
-call minpac#add('colmbus72/slim')
 call minpac#add('vim/killership')
-
-command! Slack :call slim#StartSlack()
 
 " Minpac options
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+command! Pr execute "Git log origin/master..HEAD --name-status | only"
+
 
 " Netrw options
 let g:netrw_liststyle=3
@@ -138,3 +136,4 @@ endif
 
 
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>

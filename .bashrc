@@ -54,13 +54,13 @@ dev() {
 # Aliases
 alias vi=vim
 
-vim () {
-    if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-        nvr $*
-    else
-        nvim $*
-    fi
-}
+# vim () {
+#     if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+#         nvr $*
+#     else
+#         nvim $*
+#     fi
+# }
 
 alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name travauxlib-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres && ruby ~/travauxlib/api/restore_db.rb'
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name travauxlib-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres'
@@ -71,7 +71,7 @@ alias website_stop="php bin/console server:stop"
 alias website_refresh="php bin/console travauxlib:clear-cloudflare-cache"
 
 ag() {
-  command ag \
+  command ag --hidden \
     -p "$(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git rev-parse --show-toplevel)/.gitignore")" \
     "$@"
 }
