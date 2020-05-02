@@ -59,7 +59,6 @@ call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
-call minpac#add('vim/killership')
 
 " Minpac options
 command! PackUpdate call minpac#update()
@@ -124,8 +123,7 @@ nnoremap cv :e $MYVIMRC<CR>
 " improve gx
 function! s:Gx()
   let l:url = expand("<cWORD>")
-  echom l:url
-  execute "!xdg-open " . l:url
+  execute "!xdg-open " . escape(l:url, "#")
 endfunction
 
 nmap gx :call <SID>Gx()<CR>
