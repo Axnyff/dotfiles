@@ -1,10 +1,10 @@
 syntax clear
 syntax case match
-syntax keyword jsStatement if else for while do import return default export case try catch throw finally as async await yield from
+syntax keyword jsStatement if else for while do import return default export case try catch throw finally as async await yield
 highlight link jsStatement Statement
 syntax match jsString :'[^']*':
 syntax match jsString :"[^"]*":
-syntax region jsTemplateExpression start=/\${/ end=/}/ contained contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunction
+syntax region jsTemplateExpression start=/\${/ end=/}/ contained contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunctionStart,jsArrow
 syntax region jsTemplateString start="`" end="`" contains=jsTemplateExpression
 
 syntax match jsComment ://.*:
@@ -13,16 +13,15 @@ syntax match jsBeforeIdentifier :\(const\|function\*\|function\|type\|interface\
 syntax match jsIdentifier :\w\+: contained
 syntax match jsObjectKey ?\w\+:?
 syntax match jsxBlockName :\(\s\|>\)<\/\?\zs\w\+\ze\(>\|\n\|\s\):
-syntax match jsArrowFunction :([^)]*)\s*\zs=>:
-syntax match jsNumber :\W\zs-\?\d\+\(\.\d\+\)\?:
+syntax match jsArrowFunctionStart :(\_[^()]*)\s*\ze=>:
+syntax match jsArrow :=>:
+syntax match jsNumber :-\?\d\+\(\.\d\+\)\?:
 syntax keyword jsBoolean false true
 syntax keyword jsType string boolean number void
-syntax keyword jsUndefinedOrNull null undefined
 
 highlight link jsType Type
 highlight link jsNumber Number
-highlight link jsBoolean Boolean
-highlight link jsUndefinedOrNull Special
+highlight link jsArrow Special
 highlight link jsxBlockName Statement
 highlight link jsObjectKey Statement
 highlight link jsComment Comment
@@ -30,4 +29,3 @@ highlight link jsString String
 highlight link jsTemplateString String
 highlight link jsBeforeIdentifier Statement
 highlight link jsIdentifier Identifier
-highlight link jsArrowFunction Special
