@@ -44,6 +44,7 @@ map Y y$
 " PLUGIN SECTION
 packadd minpac
 call minpac#init()
+" Bow before Tim Pope
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fireplace')
 call minpac#add('tpope/vim-dadbod')
@@ -54,6 +55,8 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-abolish')
+
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')

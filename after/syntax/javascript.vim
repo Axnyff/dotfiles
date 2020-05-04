@@ -11,16 +11,18 @@ syntax match jsComment ://.*:
 syntax region jsComment start="\/\*" end="*/"
 syntax match jsBeforeIdentifier :\(const\|function\*\|function\|type\|interface\): nextgroup=jsIdentifier skipwhite
 syntax match jsIdentifier :\w\+: contained
-syntax match jsObjectKey ?\w\+:?
-syntax match jsxBlockName :\(\s\|>\)<\/\?\zs\w\+\ze\(>\|\n\|\s\):
-syntax match jsArrowFunctionStart :(\_[^()]*)\s*\ze=>:
+syntax match jsObjectKey !\w\+\ze\??:!
+syntax match jsxBlockName :\(\s\|}\|>\)<\/\?\zs\w\+\ze\(>\|\n\|\s\):
+syntax match jsArrowFunctionStart :(\_[^()]*)\s*\ze=>: contains=jsString
 syntax match jsArrow :=>:
 syntax match jsNumber :-\?\d\+\(\.\d\+\)\?:
+syntax keyword jsLiteral null undefined
 syntax keyword jsBoolean false true
-syntax keyword jsType string boolean number void
+syntax keyword jsType string boolean number void object
 
 highlight link jsType Type
 highlight link jsNumber Number
+highlight link jsLiteral Special
 highlight link jsArrow Special
 highlight link jsxBlockName Statement
 highlight link jsObjectKey Statement
