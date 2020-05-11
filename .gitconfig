@@ -28,5 +28,6 @@
 	fuck = !git pull --rebase && git push
 	co = checkout
 	amend = commit --amend
+	yolo = !git commit -m \"$(curl -s api.kanye.rest/?format=text)\"
 [init]
 	templatedir = ~/.vim/git_template

@@ -50,17 +50,13 @@ dev() {
   tmux attach-session $SESSION
 }
 
+kanyesay() {
+  curl -s https://api.kanye.rest?format=text | cowsay -e "oO"
+}
+
 
 # Aliases
 alias vi=vim
-
-# vim () {
-#     if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-#         nvr $*
-#     else
-#         nvim $*
-#     fi
-# }
 
 alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name travauxlib-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres && ruby ~/travauxlib/api/restore_db.rb'
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name travauxlib-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres'
@@ -79,3 +75,29 @@ ag() {
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [[ -s /home/axnyff/.autojump/etc/profile.d/autojump.sh ]] && source /home/axnyff/.autojump/etc/profile.d/autojump.sh
+
+
+# beter checkout
+_git_checkout ()
+{
+	__git_has_doubledash && return
+
+	case "$cur" in
+	--conflict=*)
+		__gitcomp "diff3 merge" "" "${cur##--conflict=}"
+		;;
+	--*)
+		__gitcomp_builtin checkout
+		;;
+	*)
+		# check if --track, --no-track, or --no-guess was specified
+		# if so, disable DWIM mode
+		local flags="--track --no-track --no-guess" track_opt="--track"
+		if [ "$GIT_COMPLETION_CHECKOUT_NO_GUESS" = "1" ] ||
+		   [ -n "$(__git_find_on_cmdline "$flags")" ]; then
+			track_opt=''
+		fi
+		__gitcomp_direct "$(__git_heads "" "$cur" " ")"
+		;;
+	esac
+}

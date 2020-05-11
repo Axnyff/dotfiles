@@ -4,16 +4,16 @@ syntax keyword jsStatement if else for while do import return default export cas
 highlight link jsStatement Statement
 syntax match jsString :'[^']*':
 syntax match jsString :"[^"]*":
-syntax region jsTemplateExpression start=/\${/ end=/}/ contained contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunctionStart,jsArrow
+syntax region jsTemplateExpression start=/\${/ end=/}/ contained contains=expression
 syntax region jsTemplateString start="`" end="`" contains=jsTemplateExpression
-
+syntax cluster expression contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunctionStart,jsArrow
 syntax match jsComment ://.*:
 syntax region jsComment start="\/\*" end="*/"
-syntax match jsBeforeIdentifier :\(const\|function\*\|function\|type\|interface\): nextgroup=jsIdentifier skipwhite
+syntax match jsBeforeIdentifier :\(let\|const\|function\*\|function\|type\|interface\): nextgroup=jsIdentifier skipwhite
 syntax match jsIdentifier :\w\+: contained
-syntax match jsObjectKey !\w\+\ze\??:!
-syntax match jsxBlockName :\(\s\|}\|>\)<\/\?\zs\w\+\ze\(>\|\n\|\s\):
-syntax match jsArrowFunctionStart :(\_[^()]*)\s*\ze=>: contains=jsString
+syntax match jsObjectKey !\w\+\ze?\?:!
+syntax match jsxBlockName :\(\s\|}\|>\)<\/\?\zs[A-Za-z\.]\+\ze\(>\|\n\|\s\):
+syntax match jsArrowFunctionStart :(\_[^()]*)\s*\ze=>: contains=expression
 syntax match jsArrow :=>:
 syntax match jsNumber :-\?\d\+\(\.\d\+\)\?:
 syntax keyword jsLiteral null undefined
