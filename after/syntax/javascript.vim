@@ -6,7 +6,7 @@ syntax match jsString :'[^']*':
 syntax match jsString :"[^"]*":
 syntax region jsTemplateExpression start=/\${/ end=/}/ contained contains=expression
 syntax region jsTemplateString start="`" end="`" contains=jsTemplateExpression
-syntax cluster expression contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunctionStart,jsArrow
+syntax cluster expression contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunctionStart,jsArrow,jsBoolean,jsType,jsLiteral
 syntax match jsComment ://.*:
 syntax region jsComment start="\/\*" end="*/"
 syntax match jsBeforeIdentifier :\(let\|const\|function\*\|function\|type\|interface\): nextgroup=jsIdentifier skipwhite
@@ -19,6 +19,7 @@ syntax match jsNumber :-\?\d\+\(\.\d\+\)\?:
 syntax keyword jsLiteral null undefined
 syntax keyword jsBoolean false true
 syntax keyword jsType string boolean number void object
+syntax sync fromstart
 
 highlight link jsType Type
 highlight link jsNumber Number

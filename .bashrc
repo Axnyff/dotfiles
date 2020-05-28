@@ -10,6 +10,8 @@ parse_git_branch() {
 export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \n$ "
 export LC_ALL='en_US.UTF8'
 export PATH=~/bin:$PATH
+export DENO_INSTALL="/home/axnyff/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"
 export TMPDIR="/tmp"
 export HUSKY_SKIP_INSTALL=true
@@ -46,6 +48,9 @@ dev() {
   tmux resize-pane -D 10
   tmux select-pane -U
   tmux new-window -n "api" -t 1 -c "api"
+  tmux split-window -c "api"
+  tmux resize-pane -D 10
+  tmux select-pane -U
   tmux previous-window
   tmux attach-session $SESSION
 }

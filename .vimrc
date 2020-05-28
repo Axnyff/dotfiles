@@ -55,7 +55,7 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-abolish')
+call minpac#add('tpope/vim-dispatch')
 
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
