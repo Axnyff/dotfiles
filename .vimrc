@@ -61,6 +61,8 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 
+call minpac#add('bakpakin/fennel.vim')
+
 " Minpac options
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()

@@ -4,16 +4,18 @@ syntax keyword jsStatement if else for while do import return default export cas
 highlight link jsStatement Statement
 syntax match jsString :'[^']*':
 syntax match jsString :"[^"]*":
-syntax region jsTemplateExpression start=/\${/ end=/}/ contained contains=expression
-syntax region jsTemplateString start="`" end="`" contains=jsTemplateExpression
-syntax cluster expression contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunctionStart,jsArrow,jsBoolean,jsType,jsLiteral
+syntax region jsRegex start=:/: skip=:\\/: end=:/:
+syntax region  jsTemplateString   start=+`+  skip=+\\`+  end=+`+     contains=jsTemplateExpression,jsSpecial extend
+syntax region  jsTemplateExpression contained matchgroup=jsTemplateBraces start=+${+ end=+}+ contains=@jsExpression keepend
+syntax region jsTemplateString start="`" end="`" contains=jsTemplateExpression extend
+syntax cluster jsExpression contains=jsString,jsTemplateString,jsComment,jsBeforeIdentifier,jsObjectKey,jsxBlockName,jsNumber,jsArrowFunctionStart,jsArrow,jsBoolean,jsType,jsLiteral,jsTemplateString
 syntax match jsComment ://.*:
 syntax region jsComment start="\/\*" end="*/"
 syntax match jsBeforeIdentifier :\(let\|const\|function\*\|function\|type\|interface\): nextgroup=jsIdentifier skipwhite
 syntax match jsIdentifier :\w\+: contained
 syntax match jsObjectKey !\w\+\ze?\?:!
 syntax match jsxBlockName :\(\s\|}\|>\)<\/\?\zs[A-Za-z\.]\+\ze\(>\|\n\|\s\):
-syntax match jsArrowFunctionStart :(\_[^()]*)\s*\ze=>: contains=expression
+syntax match jsArrowFunctionStart :(\_[^()]*)\s*\ze=>: contains=@jsExpression
 syntax match jsArrow :=>:
 syntax match jsNumber :-\?\d\+\(\.\d\+\)\?:
 syntax keyword jsLiteral null undefined
@@ -29,6 +31,7 @@ highlight link jsxBlockName Statement
 highlight link jsObjectKey Statement
 highlight link jsComment Comment
 highlight link jsString String
+highlight link jsRegex String
 highlight link jsTemplateString String
 highlight link jsBeforeIdentifier Statement
 highlight link jsIdentifier Identifier
