@@ -4,7 +4,6 @@ syntax keyword jsStatement if else for while do import return default export cas
 highlight link jsStatement Statement
 syntax match jsString :'[^']*':
 syntax match jsString :"[^"]*":
-syntax region jsRegex start=:/: skip=:\\/: end=:/:
 syntax region  jsTemplateString   start=+`+  skip=+\\`+  end=+`+     contains=jsTemplateExpression,jsSpecial extend
 syntax region  jsTemplateExpression contained matchgroup=jsTemplateBraces start=+${+ end=+}+ contains=@jsExpression keepend
 syntax region jsTemplateString start="`" end="`" contains=jsTemplateExpression extend
@@ -31,7 +30,6 @@ highlight link jsxBlockName Statement
 highlight link jsObjectKey Statement
 highlight link jsComment Comment
 highlight link jsString String
-highlight link jsRegex String
 highlight link jsTemplateString String
 highlight link jsBeforeIdentifier Statement
 highlight link jsIdentifier Identifier
