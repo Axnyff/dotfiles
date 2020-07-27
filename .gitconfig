@@ -32,3 +32,4 @@
 	kill-branches = "!f() { git branch | awk '!/^*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 [init]
 	templatedir = ~/.vim/git_template
+	defaultBranch = main

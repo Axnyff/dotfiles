@@ -95,12 +95,13 @@ endif
 
 
 xnoremap <silent> p p:if v:register == '"'<Bar>let @@=@0<Bar>endif<cr>
+nnoremap gF <C-W>v<C-W><C-W>gf
 
 " Properly set up undodir
 set undofile
 set undodir=~/.vim/undodir
 
-let g:local = "postgresql://play@localhost/travauxlib"
+let g:local = "postgresql://hemea@localhost/hemea"
 
 function s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
