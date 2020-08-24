@@ -47,8 +47,8 @@ dev() {
   tmux split-window
   tmux resize-pane -D 10
   tmux select-pane -U
-  tmux new-window -n "api" -t 1 -c "api"
-  tmux split-window -c "api"
+  tmux new-window -n "api" -t 1 -c "#{pane_current_path}/api"
+  tmux split-window -c "#{pane_current_path}"
   tmux resize-pane -D 10
   tmux select-pane -U
   tmux previous-window
@@ -72,9 +72,10 @@ alias website_stop="php bin/console server:stop"
 alias website_refresh="php bin/console travauxlib:clear-cloudflare-cache"
 
 ag() {
-  command ag --hidden \
-    -p "$(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git rev-parse --show-toplevel)/.gitignore")" \
-    "$@"
+  # command ag --hidden \
+  #   -p "$(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git rev-parse --show-toplevel)/.gitignore")" \
+  #   "$@"
+  command ag --hidden "$@"
 }
 
 

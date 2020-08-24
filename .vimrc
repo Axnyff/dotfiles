@@ -55,7 +55,7 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-eunuch')
 
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
@@ -68,6 +68,7 @@ command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 command! Pr execute "Git log origin/master..HEAD --name-status | only"
 
+command!  -nargs=1 -complete=file C execute "new " . <q-args> . "| only"
 
 " Netrw options
 let g:netrw_liststyle=3
