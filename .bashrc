@@ -83,7 +83,7 @@ ag() {
 [[ -s /home/axnyff/.autojump/etc/profile.d/autojump.sh ]] && source /home/axnyff/.autojump/etc/profile.d/autojump.sh
 
 
-# beter checkout
+# replace _git_checkout with this in /usr/share/bash-completion/completions/git
 _git_checkout ()
 {
 	__git_has_doubledash && return
@@ -93,7 +93,7 @@ _git_checkout ()
 		__gitcomp "diff3 merge" "" "${cur##--conflict=}"
 		;;
 	--*)
-		__gitcomp_builtin checkout
+		__gitcomp_builtin checkout "--no-track --no-recurse-submodules"
 		;;
 	*)
 		# check if --track, --no-track, or --no-guess was specified
@@ -103,7 +103,7 @@ _git_checkout ()
 		   [ -n "$(__git_find_on_cmdline "$flags")" ]; then
 			track_opt=''
 		fi
-		__gitcomp_direct "$(__git_heads "" "$cur" " ")"
+	  __gitcomp_nl "$(__git_heads '' $track)"
 		;;
 	esac
 }

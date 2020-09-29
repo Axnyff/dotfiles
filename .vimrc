@@ -62,6 +62,7 @@ call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 
 call minpac#add('bakpakin/fennel.vim')
+call minpac#add('bronson/vim-visual-star-search')
 
 " Minpac options
 command! PackUpdate call minpac#update()
@@ -91,7 +92,7 @@ set expandtab
 
 " The Silver Searcher
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden
 endif
 
 
