@@ -51,7 +51,7 @@ dev() {
   tmux split-window -c "#{pane_current_path}"
   tmux resize-pane -D 10
   tmux select-pane -U
-  tmux previous-window
+  tmux new-window -n "notes" -t 2 -c "/home/axnyff/todos"
   tmux attach-session $SESSION
 }
 
@@ -67,9 +67,6 @@ alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --na
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name travauxlib-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres'
 alias go_docker_test='docker run -p 5431:5432 --name travauxlib-db-test --restart=always -e POSTGRES_USER=hemea -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=hemea -d postgres'
 alias all_about_that_base='psql -E -d hemea -h localhost -U hemea'
-alias website_start="php bin/console server:start"
-alias website_stop="php bin/console server:stop"
-alias website_refresh="php bin/console travauxlib:clear-cloudflare-cache"
 
 ag() {
   # command ag --hidden \
@@ -107,3 +104,19 @@ _git_checkout ()
 		;;
 	esac
 }
+
+alias deploy_pro="heroku pipelines:promote -a travauxlib-pro-staging"
+alias deploy_api="heroku pipelines:promote -a travauxlib-api-staging"
+alias deploy_app="heroku pipelines:promote -a travauxlib-app-staging"
+alias deploy_admin="heroku pipelines:promote -a travauxlib-admin-staging"
+
+move_cards() {
+    BOARD_CLUB_PRO="5d834df725505a52b198e5d0"
+    BOARD_MARKETPLACE="5b3a5adcbc272ce52d6d68f1"
+    READY_TO_SHIP_PRO="5d834e62b61e066c9a35bb83"
+    READY_TO_SHIP_MARKETPLACE="5f6aff5d671856402eac2ed0"
+    PROD_PRO="5d834ea06c91e25e1fc42d70"
+    PROD_MARKETPLACE="5f6aff624b222a74e40a8645"
+    http POST "https://api.trello.com/1/lists/${READY_TO_SHIP_PRO}/moveAllCards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}&idBoard=${BOARD_CLUB_PRO}&idList=${PROD_PRO}" > /dev/null
+    http POST "https://api.trello.com/1/lists/${READY_TO_SHIP_MARKETPLACE}/moveAllCards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}&idBoard=${BOARD_MARKETPLACE}&idList=${PROD_MARKETPLACE}" > /dev/null
+  }
