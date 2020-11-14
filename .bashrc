@@ -51,7 +51,7 @@ dev() {
   tmux split-window -c "#{pane_current_path}"
   tmux resize-pane -D 10
   tmux select-pane -U
-  tmux new-window -n "notes" -t 2 -c "/home/axnyff/todos"
+  tmux new-window -n "notes" -t 2 -c "/home/axnyff/todos" "bash --rcfile <(cat /etc/bash.bashrc ~/.bashrc ~/todos/init)"
   tmux attach-session $SESSION
 }
 
