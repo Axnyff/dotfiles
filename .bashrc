@@ -52,6 +52,10 @@ dev() {
   tmux resize-pane -D 10
   tmux select-pane -U
   tmux new-window -n "notes" -t 2 -c "/home/axnyff/todos" "bash --rcfile <(cat /etc/bash.bashrc ~/.bashrc ~/todos/init)"
+  tmux new-window -n "playground" -t 3 -c "/home/axnyff/playground"
+  tmux split-window -c "#{pane_current_path}"
+  tmux resize-pane -D 10
+  tmux previous-window
   tmux attach-session $SESSION
 }
 
@@ -109,6 +113,9 @@ alias deploy_pro="heroku pipelines:promote -a travauxlib-pro-staging"
 alias deploy_api="heroku pipelines:promote -a travauxlib-api-staging"
 alias deploy_app="heroku pipelines:promote -a travauxlib-app-staging"
 alias deploy_admin="heroku pipelines:promote -a travauxlib-admin-staging"
+alias bye="tmux kill-session -t 0"
+alias z="systemctl suspend ; bye"
+alias off="systemctl poweroff"
 
 move_cards() {
     BOARD_CLUB_PRO="5d834df725505a52b198e5d0"
