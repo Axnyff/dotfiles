@@ -3,7 +3,7 @@ setlocal iskeyword+=$
 setlocal suffixesadd=.js,.ts,.tsx,.d.ts,.jsx
 setlocal cinoptions+=:0
 setlocal shiftwidth=2
-compiler eslint
+compiler prettier
 
 if exists("loaded_matchit")
   let b:match_ignorecase = 0

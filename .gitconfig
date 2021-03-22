@@ -35,3 +35,5 @@
 [init]
 	templatedir = ~/.vim/git_template
 	defaultBranch = main
+[merge]
+	tool = kdiff3

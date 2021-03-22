@@ -31,6 +31,7 @@ vimf() {
 
 del_stopped(){
     local name=$1
+
     local state
     state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
 
@@ -116,6 +117,7 @@ alias deploy_admin="heroku pipelines:promote -a travauxlib-admin-staging"
 alias bye="tmux kill-session -t 0"
 alias z="systemctl suspend ; bye"
 alias off="systemctl poweroff"
+alias kgs="java -jar ~/cgoban.jar > /dev/null &"
 
 move_cards() {
     BOARD_CLUB_PRO="5d834df725505a52b198e5d0"
