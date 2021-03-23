@@ -67,6 +67,7 @@ call minpac#add('bronson/vim-visual-star-search')
 " Minpac options
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+
 command! Pr execute "Git log origin/master..HEAD --name-status | only"
 
 command!  -nargs=1 -complete=file C execute "new " . <q-args> . "| only"
