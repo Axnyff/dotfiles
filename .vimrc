@@ -44,6 +44,7 @@ map Y y$
 " PLUGIN SECTION
 packadd minpac
 call minpac#init()
+" Bow before Tim Pope
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fireplace')
 call minpac#add('tpope/vim-dadbod')
@@ -54,20 +55,21 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-dispatch')
-call minpac#add('leafgarland/typescript-vim')
-" call minpac#add('pangloss/vim-javascript')
-call minpac#add('mxw/vim-jsx')
+call minpac#add('tpope/vim-eunuch')
+
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
-call minpac#add('bronson/vim-visual-star-search')
-call minpac#add('colmbus72/slim')
 
-command! Slack :call slim#StartSlack()
+call minpac#add('bakpakin/fennel.vim')
+call minpac#add('bronson/vim-visual-star-search')
 
 " Minpac options
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+command! Pr execute "Git log origin/master..HEAD --name-status | only"
+
+command!  -nargs=1 -complete=file C execute "new " . <q-args> . "| only"
 
 " Netrw options
 let g:netrw_liststyle=3
@@ -90,11 +92,12 @@ set expandtab
 
 " The Silver Searcher
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden
 endif
 
 
 xnoremap <silent> p p:if v:register == '"'<Bar>let @@=@0<Bar>endif<cr>
+nnoremap gF <C-W>v<C-W><C-W>gf
 
 " Properly set up undodir
 set undofile
@@ -119,3 +122,22 @@ augroup end
 if has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
+
+" edit vimrc
+nnoremap cv :e $MYVIMRC<CR>
+
+" improve gx
+function! s:Gx()
+  let l:url = expand("<cWORD>")
+  execute "!xdg-open " . escape(l:url, "#")
+endfunction
+
+nmap gx :call <SID>Gx()<CR>
+
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+
+autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>

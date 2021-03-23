@@ -1,1 +1,1 @@
-setlocal makeprg=npx\ prettier\ %\ --write
+setlocal makeprg=prettier\ %\ --write

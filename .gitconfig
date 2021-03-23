@@ -15,6 +15,7 @@
 	pushf = push --force-with-lease
 	pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
 	pushup = !git pushu 2>&1 | awk '/https/ {print $2}' | xargs xdg-open > /dev/null
+	kill-branches = "!f() { git branch | awk '!/^*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
 	ctags = !.git/hooks/ctags
 	wip = !git add -A && git commit -m "Wip"
@@ -28,5 +29,11 @@
 	fuck = !git pull --rebase && git push
 	co = checkout
 	amend = commit --amend
+	yolo = !git commit -m \"$(curl -s api.kanye.rest/?format=text)\"
+	kill-branches = "!f() { git branch | awk '!/^*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
+	showp = show --shortstat
 [init]
 	templatedir = ~/.vim/git_template
+	defaultBranch = main
+[merge]
+	tool = kdiff3
