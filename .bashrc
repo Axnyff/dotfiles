@@ -118,6 +118,8 @@ alias bye="tmux kill-session -t 0"
 alias z="systemctl suspend ; bye"
 alias off="systemctl poweroff"
 alias kgs="java -jar ~/cgoban.jar > /dev/null &"
+alias micoff='amixer set Capture nocap < /dev/null'
+alias micon='amixer set Capture cap > /dev/null'
 
 move_cards() {
     BOARD_CLUB_PRO="5d834df725505a52b198e5d0"
@@ -129,3 +131,4 @@ move_cards() {
     http POST "https://api.trello.com/1/lists/${READY_TO_SHIP_PRO}/moveAllCards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}&idBoard=${BOARD_CLUB_PRO}&idList=${PROD_PRO}" > /dev/null
     http POST "https://api.trello.com/1/lists/${READY_TO_SHIP_MARKETPLACE}/moveAllCards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}&idBoard=${BOARD_MARKETPLACE}&idList=${PROD_MARKETPLACE}" > /dev/null
   }
+
