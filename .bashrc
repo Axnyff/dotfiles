@@ -118,8 +118,8 @@ alias bye="tmux kill-session -t 0"
 alias z="systemctl suspend ; bye"
 alias off="systemctl poweroff"
 alias kgs="java -jar ~/cgoban.jar > /dev/null &"
-alias micoff='amixer set Capture nocap < /dev/null'
-alias micon='amixer set Capture cap > /dev/null'
+alias micon='amixer set Capture cap > /dev/null && echo "Mic is ON"'
+alias micoff='amixer set Capture nocap > /dev/null; echo "Mic is OFF"'
 
 move_cards() {
     BOARD_CLUB_PRO="5d834df725505a52b198e5d0"
