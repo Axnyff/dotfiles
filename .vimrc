@@ -142,3 +142,6 @@ endif
 
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+
+" interactive mode: make it read the bashrc
+set shellcmdflag=-ic

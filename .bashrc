@@ -117,9 +117,10 @@ alias deploy_admin="heroku pipelines:promote -a travauxlib-admin-staging"
 alias bye="tmux kill-session -t 0"
 alias z="systemctl suspend ; bye"
 alias off="systemctl poweroff"
-alias kgs="java -jar ~/cgoban.jar > /dev/null &"
+alias kgs="java -jar ~/cgoban.jar > /dev/null 2>&1 &"
 alias micon='amixer set Capture cap > /dev/null && echo "Mic is ON"'
 alias micoff='amixer set Capture nocap > /dev/null; echo "Mic is OFF"'
+alias fuckoff='pkill -9 node;pkill -9 java'
 
 move_cards() {
     BOARD_CLUB_PRO="5d834df725505a52b198e5d0"
