@@ -3,12 +3,10 @@ echo "Starting the madness"
 ln -s ~/.vim/.gitignore_global ~/.gitignore_global
 ln -s ~/.vim/.tmux.conf ~/.tmux.conf
 ln -s ~/.vim/.vimrc ~/.vimrc
-ln -s ~/.vim/.ideavimrc ~/.ideavimrc
 rm ~/.gitconfig
 ln -s ~/.vim/.gitconfig ~/.gitconfig
 ln -s ~/.vim/.ctags ~/.ctags
 ln -s ~/.vim/.psqlrc ~/.psqlrc
-ln -s ~/.vim/.emacs ~/.emacs
 mkdir ~/.config/alacritty
 ln -s ~/.vim/alacritty.yml ~/.config/alacritty/alacritty.yml
 
@@ -31,8 +29,3 @@ fi
 
 mkdir undofile
 alias vi=vim
-
-sudo add-apt-repository ppa:kelleyk/emacs
-sudo apt-get update
-sudo apt install emacs26
-git clone https://github.com/emacs-evil/evil ~/.emacs.d/evil
