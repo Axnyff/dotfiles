@@ -29,6 +29,10 @@ vimf() {
   vim `find -type f -name $1`
 }
 
+fox(){
+  sh -c 'env WINEPREFIX="/home/axnyff/.wine" wine-stable C:\\Program\ Files\ \(x86\)\\foxwq\\foxwq\\foxwq.exe'
+}
+
 del_stopped(){
     local name=$1
 
