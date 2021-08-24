@@ -30,7 +30,7 @@ vimf() {
 }
 
 fox(){
-  sh -c 'env WINEPREFIX="/home/axnyff/.wine" wine-stable C:\\Program\ Files\ \(x86\)\\foxwq\\foxwq\\foxwq.exe'
+  sh -c 'env WINEPREFIX="/home/axnyff/.wine" wine-stable C:\\Program\ Files\ \(x86\)\\foxwq\\foxwq\\foxwq.exe' 2> /dev/null
 }
 
 del_stopped(){

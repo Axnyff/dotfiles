@@ -83,7 +83,6 @@ nnoremap <C-p> :<C-u>FZF<CR>
 filetype plugin on
 set noswapfile
 set path=.,,
-autocmd VimLeave * call system("xsel -ib", getreg('+'))
 set wildignore=**/node_modules/*
 set hidden
 set mouse=a
