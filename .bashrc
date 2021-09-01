@@ -30,7 +30,7 @@ vimf() {
 }
 
 fox(){
-  sh -c 'env WINEPREFIX="/home/axnyff/.wine" wine-stable C:\\Program\ Files\ \(x86\)\\foxwq\\foxwq\\foxwq.exe' 2> /dev/null
+  sh -c 'env WINEPREFIX="/home/axnyff/.wine" wine-stable C:\\Program\ Files\ \(x86\)\\foxwq\\foxwq\\foxwq.exe' 2> /dev/null &
 }
 
 del_stopped(){
@@ -45,7 +45,7 @@ del_stopped(){
 }
 
 dev() {
-  docker container start travauxlib-db
+  docker container start hemea-db
   cd ~/travauxlib
   set $SESSION="travauxlib"
   tmux new-session $SESSION -d
@@ -121,7 +121,7 @@ alias deploy_admin="heroku pipelines:promote -a travauxlib-admin-staging"
 alias bye="tmux kill-session -t 0"
 alias z="systemctl suspend ; bye"
 alias off="systemctl poweroff"
-alias kgs="java -jar ~/cgoban.jar > /dev/null 2>&1 &"
+alias kgs="java -jar ~/stuff/cgoban.jar > /dev/null 2>&1 &"
 alias micon='amixer set Capture cap > /dev/null && echo "Mic is ON"'
 alias micoff='amixer set Capture nocap > /dev/null; echo "Mic is OFF"'
 alias fuckoff='pkill -9 node;pkill -9 java'
