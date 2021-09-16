@@ -69,6 +69,7 @@ command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
 command! Pr execute "Git log origin/master..HEAD --name-status | only"
+command! Gblame execute "Git blame"
 
 command!  -nargs=1 -complete=file C execute "new " . <q-args> . "| only"
 
