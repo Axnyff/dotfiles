@@ -8,6 +8,7 @@ ln -s ~/.vim/.gitconfig ~/.gitconfig
 ln -s ~/.vim/.ctags ~/.ctags
 ln -s ~/.vim/.psqlrc ~/.psqlrc
 mkdir ~/.config/alacritty
+mkdir ~/.vim/undodir
 ln -s ~/.vim/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # add . ./setup.bash to ~/bashrc
