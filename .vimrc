@@ -126,6 +126,7 @@ endif
 
 " edit vimrc
 nnoremap cv :e $MYVIMRC<CR>
+nnoremap cd :e ~/todos/todos.md<CR>
 
 " improve gx
 function! s:Gx()
