@@ -137,3 +137,6 @@ move_cards() {
     http POST "https://api.trello.com/1/lists/${READY_TO_SHIP_MARKETPLACE}/moveAllCards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}&idBoard=${BOARD_MARKETPLACE}&idList=${PROD_MARKETPLACE}" > /dev/null
   }
 
+function _git_go() {
+  _git_checkout
+}
