@@ -143,3 +143,5 @@ function _git_go() {
 }
 
 alias showmem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'
+
+[ -z "${TMUX}" ] && node ~/todos/show.js
