@@ -127,16 +127,10 @@ alias micon='amixer set Capture cap > /dev/null && echo "Mic is ON"'
 alias micoff='amixer set Capture nocap > /dev/null; echo "Mic is OFF"'
 alias fuckoff='pkill -9 node;pkill -9 java'
 
-move_cards() {
-    BOARD_CLUB_PRO="5d834df725505a52b198e5d0"
-    BOARD_MARKETPLACE="5b3a5adcbc272ce52d6d68f1"
-    READY_TO_SHIP_PRO="5d834e62b61e066c9a35bb83"
-    READY_TO_SHIP_MARKETPLACE="5f6aff5d671856402eac2ed0"
-    PROD_PRO="5d834ea06c91e25e1fc42d70"
-    PROD_MARKETPLACE="5f6aff624b222a74e40a8645"
-    http POST "https://api.trello.com/1/lists/${READY_TO_SHIP_PRO}/moveAllCards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}&idBoard=${BOARD_CLUB_PRO}&idList=${PROD_PRO}" > /dev/null
-    http POST "https://api.trello.com/1/lists/${READY_TO_SHIP_MARKETPLACE}/moveAllCards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}&idBoard=${BOARD_MARKETPLACE}&idList=${PROD_MARKETPLACE}" > /dev/null
-  }
+
+function yolo_rollback() {
+  heroku releases:rollback --app $APP `heroku releases --app $APP | tail -n +2 | awk '/Deploy/ { print $1}' | tail -n +2 | head -n 1`
+}
 
 function _git_go() {
   _git_checkout
