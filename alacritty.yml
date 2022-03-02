@@ -30,4 +30,4 @@ colors:
     cyan:    '#34e2e2'
     white:   '#eeeeec'
 
-background_opacity: 0.95
+window.opacity: 0.95

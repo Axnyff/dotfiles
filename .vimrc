@@ -146,3 +146,12 @@ autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
 " interactive mode: make it read the bashrc
 set shellcmdflag=-ic
+
+function! s:CompleteYank()
+    redir @n | silent! :'<,'>number | redir END
+    let filename=expand("%")
+    let decoration=repeat('-', len(filename)+1)
+    let @+=decoration . "\n" . filename . ':' . "\n" . decoration . "\n" . @n
+endfunction 
+
+vmap gy :call <SID>CompleteYank()<CR>
