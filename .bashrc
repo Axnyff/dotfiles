@@ -18,6 +18,7 @@ export HUSKY_SKIP_INSTALL=true
 export EDITOR="vim"
 export REACT_EDITOR="vim"
 export FZF_DEFAULT_COMMAND='grep -vf <(git ls-files -d) <(git ls-files -o -c --exclude-standard)'
+export PGPASSWORD="hemea"
 
 
 # methods
@@ -139,3 +140,4 @@ function _git_go() {
 alias showmem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'
 
 [ -z "${TMUX}" ] && node ~/todos/show.js
+export PATH="$PATH:$(yarn global bin)"
