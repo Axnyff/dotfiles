@@ -142,3 +142,11 @@ alias showmem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'
 
 [ -z "${TMUX}" ] && node ~/todos/show.js
 export PATH="$PATH:$(yarn global bin)"
+
+# Avoid duplicates
+HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
