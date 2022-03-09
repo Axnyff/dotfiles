@@ -116,6 +116,7 @@ _git_checkout ()
 }
 
 alias deploy_pro="heroku pipelines:promote -a travauxlib-pro-staging"
+alias restart_api="heroku restart -a travauxlib-api"
 alias deploy_api="heroku pipelines:promote -a travauxlib-api-staging"
 alias deploy_app="heroku pipelines:promote -a travauxlib-app-staging"
 alias deploy_admin="heroku pipelines:promote -a travauxlib-admin-staging"

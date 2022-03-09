@@ -1,6 +1,4 @@
 const body = (files) => {
-  const { messages, filePath } = data;
-
   return files.flatMap(({ messages, filePath }) =>
     messages
       .map(
