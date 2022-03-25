@@ -11,10 +11,10 @@
 [help]
 	autocorrect = 3
 [alias]
-	git = !exec git
+	git = ! exec git
 	pushf = push --force-with-lease
-	pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
-	pushup = !git pushu 2>&1 | awk '/https/ {print $2}' | xargs xdg-open > /dev/null
+	pushu = ! git push -u origin `git rev-parse --abbrev-ref HEAD`
+	pushup = ! git pushu 2>&1 | awk '/https/ {print $2}' | xargs xdg-open > /dev/null
 	kill-branches = "!f() { git branch | awk '!/^*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
 	ctags = !.git/hooks/ctags
@@ -26,14 +26,14 @@
 	pr = !git wipushup
 	lol = "log --graph --decorate --pretty=format:\"%Cred%h %Cblue%an %ai %Cgreen %s\""
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	fuck = !git pull --rebase && git push
+	fuck = ! git pull --rebase && git push
 	co = checkout
 	edit = commit --amend
 	amend = commit --amend --no-edit
-	yolo = !git commit -m \"$(curl -s api.kanye.rest/?format=text)\"
+	yolo = ! git commit -m \"$(curl -s api.kanye.rest/?format=text)\"
 	kill-branches = "!f() { git branch | awk '!/^\\*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	showp = show --shortstat
-	squash = !bash -c 'source $HOME/.vim/git_functions.sh && squash_commit_in_branch'
+	squash = ! bash -c 'source $HOME/.vim/git_functions.sh && squash_commit_in_branch'
 [init]
 	templatedir = ~/.vim/git_template
 	defaultBranch = main
