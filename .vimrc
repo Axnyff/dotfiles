@@ -155,3 +155,5 @@ function! s:CompleteYank()
 endfunction 
 
 vmap gy :call <SID>CompleteYank()<CR>
+
+autocmd BufEnter * hi MatchParen cterm=none ctermbg=blue ctermfg=blue
