@@ -132,7 +132,6 @@ alias fuckoff='pkill -9 node;pkill -9 java'
 alias mouseoff='xinput set-prop 10  "Device Enabled" 0'
 alias mouseon='xinput set-prop 10  "Device Enabled" 1'
 
-unclutter -idle 3 &
 
 function yolo_rollback() {
   heroku releases:rollback --app $APP `heroku releases --app $APP | tail -n +2 | awk '/Deploy/ { print $1}' | tail -n +2 | head -n 1`
@@ -144,6 +143,7 @@ function _git_go() {
 
 alias showmem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'
 
+[ -z "${TMUX}" ] && unclutter -idle 3 &
 [ -z "${TMUX}" ] && node ~/todos/show.js
 export PATH="$PATH:$(yarn global bin)"
 
