@@ -157,3 +157,5 @@ endfunction
 vmap gy :call <SID>CompleteYank()<CR>
 
 autocmd BufEnter * hi MatchParen cterm=none ctermbg=blue ctermfg=blue
+
+inoremap <expr> <C-f> expand("%:t:r")
