@@ -129,8 +129,8 @@ alias micon='amixer set Capture cap > /dev/null && echo "Mic is ON"'
 alias micoff='amixer set Capture nocap > /dev/null; echo "Mic is OFF"'
 alias fuckoff='pkill -9 node;pkill -9 java'
 
-alias mouseoff='xinput set-prop 10  "Device Enabled" 0'
-alias mouseon='xinput set-prop 10  "Device Enabled" 1'
+alias mouseoff='xinput set-prop `xinput --list | grep "Wireless Mouse" | head -n 1 |grep -o "[0-9]\+" | head -n 1` "Device Enabled" 0'
+alias mouseon='xinput set-prop `xinput --list | grep "Wireless Mouse" | head -n 1 |grep -o "[0-9]\+" | head -n 1`  "Device Enabled" 1'
 
 
 function yolo_rollback() {
