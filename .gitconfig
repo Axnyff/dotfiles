@@ -30,7 +30,7 @@
 	co = checkout
 	edit = commit --amend
 	amend = commit --amend --no-edit
-	yolo = ! git commit -m \"$(curl -s api.kanye.rest/?format=text)\"
+	yolo = ! git commit -m \"$(curl -s api.kanye.rest/text)\"
 	kill-branches = "!f() { git branch | awk '!/^\\*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	showp = show --shortstat
 	squash = ! bash -c 'source $HOME/.vim/git_functions.sh && squash_commit_in_branch'
