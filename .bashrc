@@ -66,7 +66,7 @@ dev() {
 }
 
 kanyesay() {
-  curl -s https://api.kanye.rest?format=text | cowsay -e "oO"
+  curl -s https://api.kanye.rest/text | cowsay -e "oO"
 }
 
 
