@@ -18,7 +18,7 @@
 	kill-branches = "!f() { git branch | awk '!/^*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
 	ctags = !.git/hooks/ctags
-	wip = !git add -A && git commit -m "Wip"
+	wip = !git add -A && git yolo
 	wipush = !git wip && git push
 	wipushf = !git wip && git pushf
 	wipushu = !git wip && git pushu
@@ -30,7 +30,7 @@
 	co = checkout
 	edit = commit --amend
 	amend = commit --amend --no-edit
-	yolo = ! git commit -m \"$(curl -s api.kanye.rest/text)\"
+	yolo = ! git commit -m \"$(curl -s https://api.kanye.rest/text)\"
 	kill-branches = "!f() { git branch | awk '!/^\\*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	showp = show --shortstat
 	squash = ! bash -c 'source $HOME/.vim/git_functions.sh && squash_commit_in_branch'
