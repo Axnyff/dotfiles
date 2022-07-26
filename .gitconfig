@@ -18,7 +18,7 @@
 	kill-branches = "!f() { git branch | awk '!/^*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	go  = "!f() { git fetch origin  \"$1\" && git checkout \"$1\"; }; f"
 	ctags = !.git/hooks/ctags
-	wip = !git add -A && git yolo
+	wip = !git add -A && git commit -m "Wip"
 	wipush = !git wip && git push
 	wipushf = !git wip && git pushf
 	wipushu = !git wip && git pushu
