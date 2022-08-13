@@ -131,7 +131,7 @@ nnoremap cd :e ~/todos/todos.md<CR>
 " improve gx
 function! s:Gx()
   let l:url = expand("<cWORD>")
-  execute "!xdg-open " . escape(l:url, "#")
+  execute "!xdg-open " . shellescape(l:url, 1)
 endfunction
 
 nmap gx :call <SID>Gx()<CR>
