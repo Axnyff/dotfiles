@@ -131,6 +131,7 @@ alias fuckoff='pkill -9 node;pkill -9 java'
 
 alias mouseoff='xinput set-prop `xinput --list | grep "Wireless Mouse" | head -n 1 |grep -o "[0-9]\+" | head -n 1` "Device Enabled" 0'
 alias mouseon='xinput set-prop `xinput --list | grep "Wireless Mouse" | head -n 1 |grep -o "[0-9]\+" | head -n 1`  "Device Enabled" 1'
+alias gs='vim +0Git "+normal gU"'
 
 
 function yolo_rollback() {
@@ -154,3 +155,4 @@ shopt -s histappend
 
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export BROWSER=/usr/bin/firefox
