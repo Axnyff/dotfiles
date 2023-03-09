@@ -158,3 +158,5 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 export BROWSER=/usr/bin/firefox
 
 alias fuck_you_snap="snap-store --quit"
+alias fr='setxkbmap fr'
+alias us='setxkbmap us'

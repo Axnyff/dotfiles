@@ -10,8 +10,7 @@ https://www.userchrome.org/how-create-userchrome-css.html
 Remove subreddit manager
 
 # Make git checkout complete local branches
-https://gist.github.com/mmrko/b3ec6da9bea172cdb6bd83bdf95ee817#gistcomment-2218059
-in /usr/share/bash-completion/completions/git
+https://cmetcalfe.ca/blog/git-checkout-autocomplete-local-branches-only.html
 
 # Hide cursor after a time
 https://askubuntu.com/a/684638/767650
