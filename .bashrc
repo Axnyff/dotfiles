@@ -65,10 +65,6 @@ dev() {
   tmux attach-session $SESSION
 }
 
-kanyesay() {
-  curl -s https://api.kanye.rest/text | cowsay -e "oO"
-}
-
 
 # Aliases
 alias vi=vim
