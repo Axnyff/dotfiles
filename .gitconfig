@@ -33,6 +33,7 @@
 	kill-branches = "!f() { git branch | awk '!/^\\*|master/ {print $1 }' | xargs git branch ${1--d};}; f"
 	showp = show --shortstat
 	squash = ! bash -c 'source $HOME/.vim/git_functions.sh && squash_commit_in_branch'
+	feat = flow feature start
 [init]
 	templatedir = ~/.vim/git_template
 	defaultBranch = main

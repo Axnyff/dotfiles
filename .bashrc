@@ -30,10 +30,6 @@ vimf() {
   vim `find -type f -name $1`
 }
 
-fox(){
-  sh -c 'env WINEPREFIX="/home/axnyff/.wine" wine C:\\Program\ Files\ \(x86\)\\foxwq\\foxwq\\foxwq.exe' 2> /dev/null &
-}
-
 del_stopped(){
     local name=$1
 
@@ -156,3 +152,4 @@ export BROWSER=/usr/bin/firefox
 alias fuck_you_snap="snap-store --quit"
 alias fr='setxkbmap fr'
 alias us='setxkbmap us'
+alias fixipush="yarn lint --fix && git wipush"

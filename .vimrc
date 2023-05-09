@@ -63,6 +63,7 @@ call minpac#add('junegunn/fzf.vim')
 
 call minpac#add('bakpakin/fennel.vim')
 call minpac#add('bronson/vim-visual-star-search')
+call minpac#add('justinmk/vim-sneak')
 
 " Minpac options
 command! PackUpdate call minpac#update()
