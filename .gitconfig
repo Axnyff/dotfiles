@@ -34,6 +34,7 @@
 	showp = show --shortstat
 	squash = ! bash -c 'source $HOME/.vim/git_functions.sh && squash_commit_in_branch'
 	feat = flow feature start
+	hotfix = flow hotfix start
 [init]
 	templatedir = ~/.vim/git_template
 	defaultBranch = main
