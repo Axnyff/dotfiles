@@ -2,7 +2,7 @@ echo "Starting the madness"
 
 ln -s ~/.vim/.gitignore_global ~/.gitignore_global
 ln -s ~/.vim/.tmux.conf ~/.tmux.conf
-ln -s ~/.vim/.vimrc ~/.vimrc
+ln -s ~/.vim/lua/init.lua ~/.config/nvim/lua/init.lua
 rm ~/.gitconfig
 ln -s ~/.vim/.gitconfig ~/.gitconfig
 ln -s ~/.vim/.ctags ~/.ctags

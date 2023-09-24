@@ -15,6 +15,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss4M"
 export TMPDIR="/tmp"
 export HUSKY_SKIP_INSTALL=true
+alias vim="nvim"
 export EDITOR="vim"
 export REACT_EDITOR="vim"
 export FZF_DEFAULT_COMMAND='grep -vf <(git ls-files -d) <(git ls-files -o -c --exclude-standard)'
@@ -65,7 +66,7 @@ dev() {
 # Aliases
 alias vi=vim
 
-alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name hemea-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres && ruby ~/travauxlib/api/restore_db.rb'
+alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name hemea-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres && ~/travauxlib/api/restore_db.sh'
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name hemea-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres'
 alias go_docker_test='docker run -p 5431:5432 --name hemea-db-test --restart=always -e POSTGRES_USER=hemea -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=hemea -d postgres'
 alias all_about_that_base='psql -E -d hemea -h localhost -U hemea'
