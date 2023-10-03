@@ -39,4 +39,9 @@
 	templatedir = ~/.vim/git_template
 	defaultBranch = main
 [merge]
-	tool = kdiff3
+	tool = diffconflicts
+[mergetool "diffconflicts"]
+	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
