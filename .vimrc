@@ -1,5 +1,6 @@
+lua require('init')
+
 set guifont=Consolas:h10
-set relativenumber
 set nu
 set langmenu=en_US
 let $LANG = 'en_US'
