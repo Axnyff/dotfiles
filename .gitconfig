@@ -2,7 +2,7 @@
 	email = Axnyff@gmail.com
 	name = Axel Nyffenegger
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = /home/axnyff/.gitignore_global
 [push]
 	default = simple

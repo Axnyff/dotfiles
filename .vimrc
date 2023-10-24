@@ -161,3 +161,5 @@ autocmd BufEnter * hi MatchParen cterm=none ctermbg=blue ctermfg=blue
 
 inoremap <expr> <C-f> expand("%:t:r")
 nnoremap gs :0Git<cr>:normal gU<cr>
+nnoremap ^ _
+inoremap ^ <Esc>_
