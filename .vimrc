@@ -58,7 +58,6 @@ call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-eunuch')
 
 call minpac#add('whiteinge/diffconflicts')
-call minpac#add('vim-airline/vim-airline')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 
