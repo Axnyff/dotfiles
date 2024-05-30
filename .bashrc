@@ -154,3 +154,32 @@ alias fuck_you_snap="snap-store --quit"
 alias fr='setxkbmap fr'
 alias us='setxkbmap us'
 alias fixipush="yarn lint --fix && git wipush"
+
+
+function jest-many-times-sequential() {
+  i=1
+  successes=0
+  failures=0
+  totalTests=$2
+  SUCCESS_CHECKMARK=$(printf '\342\234\224\n' | iconv -f UTF-8)
+  CROSS_MARK=$(printf '\342\235\214\n' | iconv -f UTF-8)
+
+  until [ $i -gt $2 ]; do
+    if yarn jest $1 --silent; then
+      ((successes = successes + 1))
+      echo "  $SUCCESS_CHECKMARK tests passed"
+    else
+      ((failures = failures + 1))
+      echo "  $CROSS_MARK tests failed"
+    fi
+    ((i = i + 1))
+
+  done
+
+  echo "\n
+  Ran Tests $totalTests times.\n
+  ✅ Succeeded: $successes/$totalTests
+  ❌ Failed: $failures/$totalTests
+  \n
+  "
+}
