@@ -10,7 +10,7 @@ ln -s ~/.vim/.ctags ~/.ctags
 ln -s ~/.vim/.psqlrc ~/.psqlrc
 mkdir ~/.config/alacritty
 mkdir ~/.vim/undodir
-ln -s ~/.vim/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/.vim/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 # add . ./setup.bash to ~/bashrc
 ln -s ~/.vim/.bashrc ~/.setup.bash
