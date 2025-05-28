@@ -1,1 +1,3 @@
-require("config.lazy")
+vim.diagnostic.config({virtual_text=false, signs = false, underline = false})
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.ts_ls.setup{}
