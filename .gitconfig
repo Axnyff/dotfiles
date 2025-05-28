@@ -35,8 +35,9 @@
 	squash = ! bash -c 'source $HOME/.vim/git_functions.sh && squash_commit_in_branch'
 	feat = flow feature start
 	hotfix = flow hotfix start
-	hotfix-finish = !sh -c 'gh pr ready hotfix/$1 && git flow hotfix finish -n --nokeep --squash --push --fetch $1' -
+	release-start = !sh -c 'git flow release start $1 && git flow release publish $1' -
 	release-finish = !sh -c 'git flow release finish --push --nokeep -n --fetch $1' -
+	hotfix-finish = !sh -c 'gh pr ready hotfix/$1 && git flow hotfix finish -n --nokeep --squash --push --fetch $1' -
 [init]
 	templatedir = ~/.vim/git_template
 	defaultBranch = main

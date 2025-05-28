@@ -9,5 +9,9 @@
 \pset unicode_column_linestyle single
 \pset unicode_header_linestyle double
 set intervalstyle to 'postgres_verbose';
+<<<<<<< HEAD
 \setenv EDITOR '/home/axnyff/.local/bin/nvim'
+=======
+\setenv EDITOR '/usr/bin/nvim'
+>>>>>>> Wip
 \set QUIET 0

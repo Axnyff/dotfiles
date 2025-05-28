@@ -63,6 +63,7 @@ call minpac#add('junegunn/fzf.vim')
 
 call minpac#add('bakpakin/fennel.vim')
 call minpac#add('bronson/vim-visual-star-search')
+call minpac#add('neovim/nvim-lspconfig')
 
 " Minpac options
 command! PackUpdate call minpac#update()
@@ -156,9 +157,9 @@ endfunction
 
 vmap gy :call <SID>CompleteYank()<CR>
 
-autocmd BufEnter * hi MatchParen cterm=none ctermbg=blue ctermfg=blue
-
 inoremap <expr> <C-f> expand("%:t:r")
 nnoremap gs :0Git<cr>:normal gU<cr>
 nnoremap ^ _
 inoremap ^ <Esc>_
+
+let loaded_matchparen = 1
