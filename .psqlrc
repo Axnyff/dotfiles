@@ -1,4 +1,4 @@
-\set QUIET 1
+\set QUIET 0
 \set PROMPT1 '%~%x%# '
 \x auto
 \set ON_ERROR_STOP on
