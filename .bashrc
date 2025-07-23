@@ -43,21 +43,12 @@ del_stopped(){
 }
 
 dev() {
-  docker container start hemea-db
-  cd ~/travauxlib
-  set $SESSION="travauxlib"
+  cd ~/playground
+  set $SESSION="axnyff"
   tmux new-session $SESSION -d
-  tmux split-window
-  tmux resize-pane -D 10
-  tmux select-pane -U
-  tmux new-window -n "api" -t 1 -c "#{pane_current_path}/api"
   tmux split-window -c "#{pane_current_path}"
   tmux resize-pane -D 10
-  tmux select-pane -U
-  tmux new-window -n "notes" -t 2 -c "/home/axnyff/todos" "bash --rcfile <(cat /etc/bash.bashrc ~/.bashrc ~/todos/init)"
-  tmux new-window -n "playground" -t 3 -c "/home/axnyff/playground"
-  tmux split-window -c "#{pane_current_path}"
-  tmux resize-pane -D 10
+  tmux new-window -n "notes" -t 1 -c "/home/axnyff/todos" "bash --rcfile <(cat /etc/bash.bashrc ~/.bashrc ~/todos/init)"
   tmux previous-window
   tmux attach-session $SESSION
 }

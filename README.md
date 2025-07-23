@@ -14,3 +14,6 @@ https://cmetcalfe.ca/blog/git-checkout-autocomplete-local-branches-only.html
 
 # Hide cursor after a time
 https://askubuntu.com/a/684638/767650
+
+# Keyboard
+https://sndrtj.eu/2019/10/19/Using-a-USB-midi-keyboard-on-Ubuntu/
