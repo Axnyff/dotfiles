@@ -127,7 +127,6 @@ function _git_go() {
 
 alias showmem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'
 
-[ -z "${TMUX}" ] && unclutter -idle 3 &
 [ -z "${TMUX}" ] && node ~/todos/show.js
 export PATH="$PATH:$(yarn global bin)"
 

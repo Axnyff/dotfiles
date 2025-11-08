@@ -1,5 +1,3 @@
-lua require('init')
-
 set guifont=Consolas:h10
 set nu
 set langmenu=en_US
