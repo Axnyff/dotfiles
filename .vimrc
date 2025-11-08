@@ -127,14 +127,6 @@ endif
 nnoremap cv :e $MYVIMRC<CR>
 nnoremap cd :e ~/todos/todos.md<CR>
 
-" improve gx
-function! s:Gx()
-  let l:url = expand("<cWORD>")
-  execute "!xdg-open " . shellescape(l:url, 1)
-endfunction
-
-nmap gx :call <SID>Gx()<CR>
-
 if exists(':tnoremap')
     tnoremap <Esc> <C-\><C-n>
 endif
