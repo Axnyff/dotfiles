@@ -161,3 +161,5 @@ nnoremap ^ _
 inoremap ^ <Esc>_
 
 let loaded_matchparen = 1
+
+set shell=bash\ --rcfile\ /etc/bash.bashrc
