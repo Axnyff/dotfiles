@@ -25,7 +25,7 @@ sudo apt-get install tmux
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
 # public key
-if [ ! -f ~/.ssh/id_rsa ]; then
+if [ ! -f ~/.ssh/id_ed25519 ]; then
   ssh-keygen
 fi
 
@@ -38,4 +38,3 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo apt-get install silversearcher-ag
 
 sudo apt install curl
-cp -s ~/.vim/plugins.sbt ~/.sbt/1.0/plugins/plugins.sbt
