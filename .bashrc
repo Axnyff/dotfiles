@@ -19,7 +19,7 @@ alias  vim="nvim"
 export EDITOR="vim"
 export REACT_EDITOR="vim"
 export FZF_DEFAULT_COMMAND='grep -vf <(git ls-files -d) <(git ls-files -o -c --exclude-standard)'
-export PGPASSWORD="hemea"
+export PGPASSWORD="apiday"
 
 
 # methods
@@ -43,12 +43,21 @@ del_stopped(){
 }
 
 dev() {
-  cd ~/playground
-  set $SESSION="axnyff"
+  # docker container start hemea-db
+  cd ~/apiday
+  set $SESSION="hemea"
   tmux new-session $SESSION -d
+  tmux split-window
+  tmux resize-pane -D 10
+  tmux select-pane -U
+  tmux new-window -n "api" -t 1 -c "#{pane_current_path}/backend"
   tmux split-window -c "#{pane_current_path}"
   tmux resize-pane -D 10
-  tmux new-window -n "notes" -t 1 -c "/home/axnyff/todos" "bash --rcfile <(cat /etc/bash.bashrc ~/.bashrc ~/todos/init)"
+  tmux select-pane -U
+  tmux new-window -n "notes" -t 2 -c "/home/axnyff/todos" "bash --rcfile <(cat /etc/bash.bashrc ~/.bashrc ~/todos/init)"
+  tmux new-window -n "playground" -t 3 -c "/home/axnyff/playground"
+  tmux split-window -c "#{pane_current_path}"
+  tmux resize-pane -D 10
   tmux previous-window
   tmux attach-session $SESSION
 }
@@ -60,7 +69,7 @@ alias vi=vim
 alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name hemea-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres && ~/travauxlib/api/restore_db.sh'
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name hemea-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres'
 alias go_docker_test='docker run -p 5431:5432 --name hemea-db-test --restart=always -e POSTGRES_USER=hemea -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=hemea -d postgres'
-alias all_about_that_base='psql -E -d hemea -h localhost -U hemea'
+alias all_about_that_base='psql -E -d apiday -h localhost -U apiday'
 
 ag() {
   # command ag --hidden \
@@ -173,3 +182,4 @@ function jest-many-times-sequential() {
   "
 }
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:/opt/nvim-linux-arm64/bin"
