@@ -50,9 +50,8 @@ del_stopped(){
 }
 
 dev() {
-  # docker container start hemea-db
   cd ~/apiday
-  set $SESSION="hemea"
+  set $SESSION="apiday"
   tmux new-session $SESSION -d
   tmux split-window
   tmux resize-pane -D 10
@@ -74,8 +73,8 @@ dev() {
 alias vi=vim
 
 alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name apiday -e POSTGRES_USER=apiday -e POSTGRES_DB=apiday -e POSTGRES_PASSWORD=apiday -d postgres'
-alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name hemea-db -e POSTGRES_USER=hemea -e POSTGRES_DB=hemea -e POSTGRES_PASSWORD=hemea -d postgres'
-alias go_docker_test='docker run -p 5431:5432 --name hemea-db-test --restart=always -e POSTGRES_USER=hemea -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=hemea -d postgres'
+alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name apiday -e POSTGRES_USER=apiday -e POSTGRES_DB=apiday -e POSTGRES_PASSWORD=apiday -d postgres'
+alias go_docker_test='docker run -p 5431:5432 --name apiday-test --restart=always -e POSTGRES_USER=apiday -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=apiday -d postgres'
 alias all_about_that_base='psql -E -d apiday -h localhost -U apiday'
 
 ag() {
