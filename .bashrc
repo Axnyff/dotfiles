@@ -26,7 +26,8 @@ export DATABASE_USERNAME="apiday"
 export DATABASE_PASSWORD="apiday"
 export DATABASE_HOST="localhost"
 export DATABASE_PORT="5432"
-export BASE_URL="http://localhost:8080"
+export BASE_URL="http://localhost:8000"
+export CLOUD_FUNCTION_ACCESS_TOKEN="ahy_m7JYqF-kBg.KwjkKBs-H4rWjQ-Gzmrw0QrvnDwmV_Vn-CMUPcQvbY8"
 
 
 # methods
@@ -50,6 +51,7 @@ del_stopped(){
 }
 
 dev() {
+  docker container start apiday
   cd ~/apiday
   set $SESSION="apiday"
   tmux new-session $SESSION -d
@@ -60,9 +62,6 @@ dev() {
   tmux split-window -c "#{pane_current_path}"
   tmux resize-pane -D 10
   tmux select-pane -U
-  tmux new-window -n "notes" -t 2 -c "/home/axnyff/todos" "bash --rcfile <(cat /etc/bash.bashrc ~/.bashrc ~/todos/init)"
-  tmux new-window -n "playground" -t 3 -c "/home/axnyff/playground"
-  tmux split-window -c "#{pane_current_path}"
   tmux resize-pane -D 10
   tmux previous-window
   tmux attach-session $SESSION
@@ -125,7 +124,7 @@ alias off="systemctl poweroff"
 alias kgs="java -jar ~/.vim/cgoban.jar > /dev/null 2>&1 &"
 alias micon='amixer set Capture cap > /dev/null && echo "Mic is ON"'
 alias micoff='amixer set Capture nocap > /dev/null; echo "Mic is OFF"'
-alias fuckoff='pkill -9 node;pkill -9 java'
+alias fuckoff='pkill -9 node;pkill -9 npm;pkill -9 java;pkill -9 python'
 
 alias mouseoff='xinput set-prop `xinput --list | grep "Wireless Mouse" | head -n 1 |grep -o "[0-9]\+" | head -n 1` "Device Enabled" 0'
 alias mouseon='xinput set-prop `xinput --list | grep "Wireless Mouse" | head -n 1 |grep -o "[0-9]\+" | head -n 1`  "Device Enabled" 1'
@@ -158,6 +157,7 @@ alias fuck_you_snap="snap-store --quit"
 alias fr='setxkbmap fr'
 alias us='setxkbmap us'
 alias fixipush="yarn lint --fix && git wipush"
+alias run_tests="DJANGO_SETTINGS_MODULE=apiday.test_settings uv run python manage.py test --keepdb"
 
 
 function jest-many-times-sequential() {
