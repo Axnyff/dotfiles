@@ -2,7 +2,13 @@ echo "Starting the madness"
 
 ln -s ~/.vim/.gitignore_global ~/.gitignore_global
 ln -s ~/.vim/.tmux.conf ~/.tmux.conf
+mkdir ~/.config/nvim
 ln -s ~/.vim/lua ~/.config/nvim/lua
+ln -s ~/.vim/after ~/.config/nvim/after
+ln -s ~/.vim/pack ~/.config/nvim/pack
+ln -s ~/.vim/compiler ~/.config/nvim/compiler
+ln -s ~/.vim/ftdetect ~/.config/nvim/ftdetect
+ln -s ~/.vim/ftplugin ~/.config/nvim/ftplugin
 ln -s ~/.vim/.vimrc ~/.config/nvim/init.vim
 rm ~/.gitconfig
 ln -s ~/.vim/.gitconfig ~/.gitconfig

@@ -52,19 +52,28 @@ del_stopped(){
 
 dev() {
   docker container start apiday
-  cd ~/apiday
-  set $SESSION="apiday"
-  tmux new-session $SESSION -d
-  tmux split-window
-  tmux resize-pane -D 10
-  tmux select-pane -U
-  tmux new-window -n "api" -t 1 -c "#{pane_current_path}/backend"
-  tmux split-window -c "#{pane_current_path}"
-  tmux resize-pane -D 10
-  tmux select-pane -U
-  tmux resize-pane -D 10
-  tmux previous-window
-  tmux attach-session $SESSION
+
+  SESSION="apiday"
+  ROOT="$HOME/apiday"
+  FRONT="$ROOT/frontend"
+  BACK="$ROOT/backend"
+
+  tmux new-session -d -s "$SESSION"
+
+  tmux rename-window -t "$SESSION:0" "front"
+  tmux respawn-pane -k -t "$SESSION:0.0" -c "$FRONT"
+
+  tmux select-pane -t "$SESSION:0.0"
+
+  tmux split-window -t "$SESSION:0" -v -c "$FRONT"
+  tmux resize-pane  -t "$SESSION:0.1" -D 10
+
+  tmux new-window -d -t "$SESSION:1" -n "api" -c "$BACK"
+  tmux split-window -t "$SESSION:1" -v -c "$BACK"
+  tmux resize-pane  -t "$SESSION:1.1" -D 10
+
+  tmux select-window -t "$SESSION:0"
+  tmux attach -t "$SESSION"
 }
 
 
@@ -75,6 +84,7 @@ alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --na
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name apiday -e POSTGRES_USER=apiday -e POSTGRES_DB=apiday -e POSTGRES_PASSWORD=apiday -d postgres'
 alias go_docker_test='docker run -p 5431:5432 --name apiday-test --restart=always -e POSTGRES_USER=apiday -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=apiday -d postgres'
 alias all_about_that_base='psql -E -d apiday -h localhost -U apiday'
+alias db_staging='psql -E -d apiday -h 34.77.120.149 -U axel'
 
 ag() {
   # command ag --hidden \
