@@ -19,7 +19,6 @@ alias  vim="nvim"
 export EDITOR="vim"
 export REACT_EDITOR="vim"
 export FZF_DEFAULT_COMMAND='grep -vf <(git ls-files -d) <(git ls-files -o -c --exclude-standard)'
-export PGPASSWORD="apiday"
 export USE_POSTGRES="true"
 export DATABASE_NAME="apiday"
 export DATABASE_USERNAME="apiday"
@@ -82,9 +81,10 @@ alias vi=vim
 
 alias go_docker='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name apiday -e POSTGRES_USER=apiday -e POSTGRES_DB=apiday -e POSTGRES_PASSWORD=apiday -d postgres'
 alias go_docker_empty='docker rm -f $(docker ps -a -q) && docker run -p 5432:5432 --name apiday -e POSTGRES_USER=apiday -e POSTGRES_DB=apiday -e POSTGRES_PASSWORD=apiday -d postgres'
-alias go_docker_test='docker run -p 5431:5432 --name apiday-test --restart=always -e POSTGRES_USER=apiday -e POSTGRES_DB=travauxlib-test -e POSTGRES_PASSWORD=apiday -d postgres'
+alias go_docker_test='docker run -p 5433:5432 --name apiday-test --restart=always -e POSTGRES_USER=apiday -e POSTGRES_DB=apiday-test -e POSTGRES_PASSWORD=apiday -d postgres'
 alias all_about_that_base='psql -E -d apiday -h localhost -U apiday'
 alias db_staging='psql -E -d apiday -h 34.77.120.149 -U axel'
+alias db_prod='psql -E -d apiday -h 35.187.31.97 -U axel'
 
 ag() {
   # command ag --hidden \
