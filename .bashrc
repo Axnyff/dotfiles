@@ -98,31 +98,6 @@ ag() {
 [[ -s /home/axnyff/.autojump/etc/profile.d/autojump.sh ]] && source /home/axnyff/.autojump/etc/profile.d/autojump.sh
 
 
-# replace _git_checkout with this in /usr/share/bash-completion/completions/git
-_git_checkout ()
-{
-	__git_has_doubledash && return
-
-	case "$cur" in
-	--conflict=*)
-		__gitcomp "diff3 merge" "" "${cur##--conflict=}"
-		;;
-	--*)
-		__gitcomp_builtin checkout "--no-track --no-recurse-submodules"
-		;;
-	*)
-		# check if --track, --no-track, or --no-guess was specified
-		# if so, disable DWIM mode
-		local flags="--track --no-track --no-guess" track_opt="--track"
-		if [ "$GIT_COMPLETION_CHECKOUT_NO_GUESS" = "1" ] ||
-		   [ -n "$(__git_find_on_cmdline "$flags")" ]; then
-			track_opt=''
-		fi
-	  __gitcomp_nl "$(__git_heads '' $track)"
-		;;
-	esac
-}
-
 alias restart_api="heroku restart -a travauxlib-api"
 alias deploy_pro="heroku pipelines:promote -a travauxlib-pro-staging"
 alias deploy_api="heroku pipelines:promote -a travauxlib-api-staging"
