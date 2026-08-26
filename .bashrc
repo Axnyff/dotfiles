@@ -86,6 +86,34 @@ alias all_about_that_base='psql -E -d apiday -h localhost -U apiday'
 alias db_staging='psql -E -d apiday -h 34.77.120.149 -U axel'
 alias db_prod='psql -E -d apiday -h 35.187.31.97 -U axel'
 
+# Swap the local 'apiday' container between prod/staging data without
+# changing host/port, so all_about_that_base and DATABASE_PORT never change.
+db_swap() {
+  local target="$1"
+  if [[ "$target" != "prod" && "$target" != "staging" ]]; then
+    echo "usage: db_swap prod|staging" >&2
+    return 1
+  fi
+
+  local volume="apiday_${target}_vol"
+  docker volume create "$volume" > /dev/null
+
+  docker rm -f apiday > /dev/null 2>&1 || true
+  docker run -d --name apiday -p 5432:5432 \
+    -e POSTGRES_USER=apiday -e POSTGRES_DB=apiday -e POSTGRES_PASSWORD=apiday \
+    -v "$volume:/var/lib/postgresql" \
+    postgres:18 > /dev/null
+
+  echo -n "==> Waiting for postgres ($target)..."
+  until docker exec apiday pg_isready -U apiday > /dev/null 2>&1; do
+    echo -n "."
+    sleep 1
+  done
+  echo " ready"
+}
+alias db_use_prod='db_swap prod'
+alias db_use_staging='db_swap staging'
+
 ag() {
   # command ag --hidden \
   #   -p "$(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git rev-parse --show-toplevel)/.gitignore")" \
