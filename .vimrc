@@ -100,8 +100,9 @@ xnoremap <silent> p p:if v:register == '"'<Bar>let @@=@0<Bar>endif<cr>
 nnoremap gF <C-W>v<C-W><C-W>gf
 
 " Properly set up undodir
+" Outside ~/ (eCryptfs) since its short filename limit breaks undofiles for deeply nested paths
 set undofile
-set undodir=~/.vim/undodir
+set undodir=/var/tmp/axnyff-vim-undo
 
 let g:local = "postgresql://hemea@localhost/hemea"
 
