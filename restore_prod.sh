@@ -45,7 +45,7 @@ done
 
 echo "==> Restoring dump..."
 docker cp "$DUMP_FILE" "$TARGET_CONTAINER:/tmp/dump.dump"
-docker exec "$TARGET_CONTAINER" pg_restore -U apiday -d apiday --no-owner --no-privileges -F c /tmp/dump.dump
+docker exec "$TARGET_CONTAINER" pg_restore -v -U apiday -d apiday --no-owner --no-privileges -F c /tmp/dump.dump
 
 if [ "$CLEANUP" = true ]; then
   echo "==> Cleaning up temporary container..."
